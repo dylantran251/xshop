@@ -92,10 +92,10 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">Category</a>
+            <a href="{{ route('admin.management.product-category.index') }}" class="menu-link">Product Category </a>
           </li>
           <li class="menu-item">
-            <a href="" class="menu-link">Product</a>
+            <a href="" class="menu-link">List Product</a>
           </li>
         </ul>
       </li>
@@ -111,15 +111,15 @@
             <a href="" class="menu-link">Category Blog</a>
           </li>
           <li class="menu-item">
-            <a href="" class="menu-link">Blog</a>
+            <a href="" class="menu-link">List Blog</a>
           </li>
         </ul>
       </li>
 
       <li class="menu-item">
-        <a href="icons-boxicons.html" class="menu-link">
+        <a href="{{ route('brand.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-crown"></i>
-          Boxicons
+          Brands
         </a>
       </li>
       <!-- Misc -->
