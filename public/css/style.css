@@ -98,7 +98,7 @@ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #ffffff;
+	color: #272be0;
 }
 
 ul,
@@ -497,15 +497,16 @@ ol {
 	padding: 24px 0;
 }
 
-.header__cart ul {
+/* .header__cart ul {
 	display: inline-block;
 	margin-right: 25px;
-}
+} */
 
 .header__cart ul li {
 	list-style: none;
 	display: inline-block;
-	margin-right: 15px;
+	margin-right: 20px;
+
 }
 
 .header__cart ul li:last-child {
@@ -893,7 +894,7 @@ ol {
 }
 
 .featured__item__pic__hover li:hover a i {
-	color: #ffffff;
+	color: #000000;
 	transform: rotate(360deg);
 }
 

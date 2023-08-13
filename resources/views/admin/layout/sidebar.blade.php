@@ -95,7 +95,7 @@
             <a href="{{ route('admin.management.product-category.index') }}" class="menu-link">Product Category </a>
           </li>
           <li class="menu-item">
-            <a href="" class="menu-link">List Product</a>
+            <a href="{{ route('admin.management.product.index') }}" class="menu-link">List Product</a>
           </li>
         </ul>
       </li>

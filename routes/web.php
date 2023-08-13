@@ -1,16 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\Management\BrandController;
+use App\Http\Controllers\Admin\Management\ProductController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Management\ProductCategoryController;
 
-Route::get('/', function(){
-    return view('pages.home');
-});
-
-Route::resource('/brand', BrandController::class);
 
 // Admin
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -26,10 +23,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
         // Route::resource('/category-blog', CategoryBlogController::class);
         // Route::resource('/product', ProductController::class);
         Route::resource('/brand', BrandController::class);
+        Route::resource('/product', ProductController::class);
     });
     // });
-
 });
+
+
+// Users
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
    
 // Route::get('/', [PageController::class, 'index'])->name('home');
