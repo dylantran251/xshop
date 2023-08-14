@@ -26,11 +26,11 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    {{-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> --}}
     {{-- Navbar Mobile --}}
-    <div class="humberger__menu__overlay"></div>
+    {{-- <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
             <a href="#"><img src="img/logo.png" alt=""></a>
@@ -66,7 +66,7 @@
         <div class="humberger__menu__contact">
             <span>Địa chỉ: </span>
         </div>
-    </div>
+    </div> --}}
     <!-- Header and Navbar -->
     <header class="header">
         @include('layout.header')

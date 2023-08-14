@@ -2,15 +2,12 @@
 @section('content')
 @php
     $brands = App\Models\Brand::all();
-    $categories = App\Models\CategoryProduct::all();
+    $categories = App\Models\ProductCategory::all();
 @endphp
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h5 mb-3 text-gray-800">Update Product</h1>
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Form Update Product</h6>
-        </div>
+        <h1 class="h5 mb-3 text-gray-800">Sửa thông tin sản phẩm</h1>
         <div class="card-body">
             <form action="{{ route('admin.management.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -20,7 +17,7 @@
                     </div>
                     <div class="mb-3 d-flex justify-content-center">
                         <div class="btn btn-primary btn-rounded">
-                            <label class="form-label text-white m-1" for="imgFile">Choose file</label>
+                            <label class="form-label text-white m-1" for="imgFile">Chọn ảnh</label>
                             <input type="file" name="image[]" class="form-control d-none" id="imgFile" multiple/>
                         </div>
                     </div>

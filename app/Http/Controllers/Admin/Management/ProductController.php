@@ -42,7 +42,7 @@ class ProductController extends Controller
             }     
             Product::create([
                 'image' => implode('|', $images),
-                'category_product_id' => $request->category,
+                'product_category_id' => $request->category,
                 'brand_id' => $request->input('brand') ,
                 'name' => $request->name, 
                 'price' => $request->input('price'),

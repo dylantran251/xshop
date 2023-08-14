@@ -64,11 +64,6 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-        <a target="_blank" class="btn btn-icon btn-outline-primary btn-buy-now">Chat</a>
-    </div>
-
-    <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="{{ asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
     <script src="{{ asset('assets/vendor/libs/popper/popper.js')}}"></script>

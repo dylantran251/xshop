@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <span style="font-size: 12px;">Đia chỉ: 21 Tân Phú, Phường Đông Lỗ, Quận Thân Bình, Tp. Hồ Chí Minh</span>
+                <span style="font-size: 12px;">Địa chỉ: KCN ICTU, Đường Z115, Quyết Thắng, Tp. Thái Nguyên</span>
             </div>
             <div class="col-lg-6">
                 <div class="header__top__right">

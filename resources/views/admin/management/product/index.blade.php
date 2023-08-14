@@ -11,10 +11,10 @@ Management Category Blog
             <div class="d-flex justify-content-between">
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
                 </form>
                 <div class="">
-                    <a href="{{ route('admin.management.product.create') }}" class="btn bg-primary text-white"><i class="fa-solid fa-plus text-white pr-2"></i>Add new</a>
+                    <a href="{{ route('admin.management.product.create') }}" class="btn bg-primary text-white"><i class="fa-solid fa-plus text-white pr-2"></i>Tạo mới</a>
                 </div>
             </div>
         </div>
@@ -78,7 +78,6 @@ Management Category Blog
                                                 <i class="fa-regular fa-trash-can"></i>
                                             </button>                                            
                                         </form>
-
                                     </div>
                                 </th>
                             </tr>
