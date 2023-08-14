@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Admin\Management\BrandController;
 use App\Http\Controllers\Admin\Management\ProductController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\HomeController;
-use App\Models\ProductCategory;
+use App\Http\Controllers\Frontend\ShopController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Management\ProductCategoryController;
@@ -32,8 +35,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 // Users
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-   
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/', [PageController::class, 'index'])->name('home');
 // Route::get('/blog', [PageController::class, 'blog'])->name('blog');   
 // Route::get('/shop', [PageController::class, 'shop'])->name('shop');

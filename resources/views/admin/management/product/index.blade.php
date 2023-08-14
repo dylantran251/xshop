@@ -5,7 +5,6 @@ Management Category Blog
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
     <div class="card shadow mb-3">
         <div class="card-header">
             <h3 class="p-0 ">Danh sách sản phẩm</h3>

@@ -18,17 +18,13 @@
                 <div class="hero__search">
                     <div class="hero__search__form">
                         <form action="#">
-                            {{-- <div class="hero__search__categories">
-                               Tìm kiếm
-                                <span class="arrow_carrot-down"></span>
-                            </div> --}}
                             <input type="text" placeholder="Tìm kiếm ở đây...">
                             <button type="submit" class="site-btn">Tìm kiếm</button>
                         </form>
                     </div>
                     <div class="hero__search__phone">
                         <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
+                            <img src="{{ asset('images/zalo.png') }}" alt="">
                         </div>
                         <div class="hero__search__phone__text">
                             <span>+84 123 456 789</span>

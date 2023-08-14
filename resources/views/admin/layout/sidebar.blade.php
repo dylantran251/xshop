@@ -117,7 +117,7 @@
       </li>
 
       <li class="menu-item">
-        <a href="{{ route('brand.index') }}" class="menu-link">
+        <a href="{{ route('admin.management.brand.index') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-crown"></i>
           Brands
         </a>

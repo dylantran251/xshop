@@ -2,16 +2,16 @@
     <div class="row">
         <div class="col-lg-3">
             <div class="header__logo">
-                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                <a href="" class="font-weight-bold fs-1">Logo ở đây</a>
             </div>
         </div>
         <div class="col-lg-6">
             <nav class="header__menu">
                 <ul>
-                    <li class="active"><a href="{{route('home')}}">Trang chủ</a></li>
-                    <li ><a href="">Cửa hàng</a></li>
-                    <li><a href="">Bài viết</a></li>
-                    <li><a href="">Liên hệ</a></li>
+                    <li class="active"><a href="{{ route('home') }}">Trang chủ</a></li>
+                    <li ><a href="{{ route('shop') }}">Cửa hàng</a></li>
+                    <li><a href="{{ route('blog') }}">Bài viết</a></li>
+                    <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                 </ul>
             </nav>
         </div>

@@ -759,7 +759,7 @@ ol {
 -----------------------*/
 
 .categories__item {
-	height: 270px;
+	height: 250px;
 	position: relative;
 }
 
@@ -1422,8 +1422,7 @@ ol {
 }
 
 .filter__item {
-	padding-top: 45px;
-	border-top: 1px solid #ebebeb;
+	text-align: end;
 	padding-bottom: 20px;
 }
 
@@ -2353,9 +2352,6 @@ ol {
   Blog Sidebar
 -----------------------*/
 
-.blog__sidebar {
-	padding-top: 50px;
-}
 
 .blog__sidebar__item {
 	margin-bottom: 50px;
