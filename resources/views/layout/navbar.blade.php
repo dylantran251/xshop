@@ -2,34 +2,26 @@
     <div class="row">
         <div class="col-lg-3">
             <div class="header__logo">
-                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                <a href="" class="font-weight-bold fs-1">Logo ở đây</a>
             </div>
         </div>
         <div class="col-lg-6">
             <nav class="header__menu">
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li class="active"><a href="./shop-grid.html">Shop</a></li>
-                    <li><a href="#">Pages</a>
-                        <ul class="header__menu__dropdown">
-                            <li><a href="./shop-details.html">Shop Details</a></li>
-                            <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                            <li><a href="./checkout.html">Check Out</a></li>
-                            <li><a href="./blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./blog.html">Blog</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li class="active"><a href="{{ route('home') }}">Trang chủ</a></li>
+                    <li ><a href="{{ route('shop') }}">Cửa hàng</a></li>
+                    <li><a href="{{ route('blog') }}">Bài viết</a></li>
+                    <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                 </ul>
             </nav>
         </div>
         <div class="col-lg-3">
             <div class="header__cart">
-                <ul>
-                    <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                    <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <ul style="padding: 5px 0;">
+                    <li><a href="#">Yêu thích<i class="fa fa-heart pl-2"></i> <span>1</span></a></li>
+                    <li><a href="#">Giỏ hàng<i class="fa fa-shopping-bag pl-2"></i> <span>3</span></a></li>
                 </ul>
-                <div class="header__cart__price">item: <span>$150.00</span></div>
+
             </div>
         </div>
     </div>

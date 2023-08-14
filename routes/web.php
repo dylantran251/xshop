@@ -1,12 +1,51 @@
 <?php
 
+use App\Http\Controllers\Admin\Management\BrandController;
+use App\Http\Controllers\Admin\Management\ProductController;
+use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ShopController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Management\ProductCategoryController;
 
-Route::get('/', function(){
-    return view('pages.home');
+
+// Admin
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+    // Route::get('/login', [AdminController::class, 'login'])->name('login');
+    // Route::post('/login/authenticate', [AdminController::class, 'authenticate'])->name('login.authenticate');
+    // Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+
+    // Route::middleware(['is_admin'])->group(function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::group(['prefix'=>'management', 'as' => 'management.'], function(){
+        Route::resource('/product-category', ProductCategoryController::class);
+        // Route::resource('/category-blog', CategoryBlogController::class);
+        // Route::resource('/product', ProductController::class);
+        Route::resource('/brand', BrandController::class);
+        Route::resource('/product', ProductController::class);
+    });
+    // });
 });
 
-Route::get('admin', function(){
-    return view('admin.dashboard');
-});
+
+// Users
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+// Route::get('/', [PageController::class, 'index'])->name('home');
+// Route::get('/blog', [PageController::class, 'blog'])->name('blog');   
+// Route::get('/shop', [PageController::class, 'shop'])->name('shop');
+// Route::get('/blog/detail', [PageController::class, 'blogDetails'])->name('blog.detail');
+// Route::get('/shop/detail', [PageController::class, 'shopDetails'])->name('shop.detail');
+// Route::get('/login', [AuthController::class, 'login'])->name('login');
+// Route::get('/register', [AuthController::class, 'register'])->name('register'); 
+// Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate');
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password'); 
