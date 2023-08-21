@@ -44,6 +44,18 @@ class ProductCategorySeeder extends Seeder
                 'description' => 'Nhâm nhi chút thời gian riêng tư với danh mục này. Ngồi lai rai, thư giãn và thưởng thức các món đồ ăn nhẹ nhàng và thú vị, giúp bạn thoát khỏi áp lực hàng ngày.',
                 'status' => 1
             ], 
+            [
+                'image' => 'anvattuoitho.jpg',
+                'name' => "Ăn vặt tuổi thơ",
+                'description' => 'Trong những kỷ niệm ấm áp của tuổi thơ, những mùi vị và hương thơm đặc trưng luôn mang theo một cảm giác hạnh phúc và ấm áp. Những khoảnh khắc nhẹ nhàng, khi ngồi bên cửa sổ và thưởng thức những thứ ngon lành, đã tạo nên những kỷ niệm không thể nào quên.',
+                'status' => 1
+            ],
+            [
+                'image' => 'doanvattrungquoc.jpeg',
+                'name' => "Đồ ăn vặt Trung Quốc",
+                'description' => 'Đồ ăn vặt Trung Quốc thường có vỏ bọc mỏng mềm, bên trong là những phần nhân đa dạng. Nhân thường được kết hợp từ nhiều loại thực phẩm khác nhau, tạo nên sự hài hòa trong mỗi lần ăn. Những hương thơm tinh tế tỏa ra từ món ăn này, khiến người ta không thể nhịn được việc thưởng thức.',
+                'status' => 1
+            ],
         ]);
     }
 }

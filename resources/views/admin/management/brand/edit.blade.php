@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="card-header py-3">
-        <h5 class="m-0 font-weight-bold text-primary text-uppercase">From create new brand</h5>
+        <h5 class="m-0 font-weight-bold text-primary text-uppercase">Cập nhật thương hiệu</h5>
     </div>
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -61,8 +61,8 @@
                 </div>
 
                 <div class="mb-3 d-flex justify-content-end">
-                    <button type="submit" class="btn bg-primary text-white mx-3" >Submit</button>
-                    <button type="button" class="btn bg-danger text-white">Cancel</button>
+                    <button type="submit" class="btn bg-primary text-white mx-3" >Xác nhận</button>
+                    <button type="button" class="btn bg-danger text-white">Hủy</button>
                 </div>
             </form>
         </div>

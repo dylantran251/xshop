@@ -17,10 +17,10 @@
 <section class="categories">
     <div class="container">
         <div class="row">
-            <div class="categories__slider owl-carousel">
+            <div class="categories__slider owl-carousel ">
                 @foreach ($productCategory as $category)
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('images/product-category/'.$category->image) }}">
+                    <div class="col-lg-3 ">
+                        <div class="categories__item set-bg " data-setbg="{{ asset('images/product-category/'.$category->image) }}">
                             <h5><a href="#">{{ $category->name }}</a></h5>
                         </div>   
                     </div>                     
@@ -79,7 +79,7 @@
     </div>
 </section>
 
-{{-- <section class="latest-product spad">
+<section class="latest-product spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -337,6 +337,6 @@
             </div>
         </div>
     </div>
-</section> --}}
+</section>
 
 @endsection

@@ -5,7 +5,7 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>Danh mục sản phẩm</span>
+                        <span style="font-size: 16px;">Danh mục sản phẩm</span>
                     </div>
                     <ul>
                         @foreach ($productCategory as $category)

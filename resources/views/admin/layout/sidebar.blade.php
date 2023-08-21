@@ -61,41 +61,32 @@
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
       <li class="menu-item active">
-        <a href="index.html" class="menu-link">
+        <a href="{{ route('admin.dashboard') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          Dashboard
+          Trang chủ
         </a>
-      </li>
-
-      <!-- Layouts -->
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
-          Layouts
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="layouts-blank.html" class="menu-link">
-              Blank
-            </a>
-          </li>
-        </ul>
       </li>
 
       <!-- Components -->
-      <li class="menu-header small text-uppercase"><span class="menu-header-text">Management</span></li>
+      <li class="menu-header small text-uppercase"><span class="menu-header-text">Cửa hàng</span></li>
       <!-- Product -->
       <li class="menu-item">
         <a href="javascript:void(0)" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-copy"></i>
-          <div>Product</div>
+          <i class="fa-solid fa-cookie-bite pr-3"></i>
+          <div>Quản lý sản phẩm</div>
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="{{ route('admin.management.product-category.index') }}" class="menu-link">Product Category </a>
+            <a href="{{ route('admin.management.product-category.index') }}" class="menu-link">Danh mục sản phẩm </a>
           </li>
           <li class="menu-item">
-            <a href="{{ route('admin.management.product.index') }}" class="menu-link">List Product</a>
+            <a href="{{ route('admin.management.product.index') }}" class="menu-link">Danh sách sản phẩm</a>
+          </li>
+          <li class="menu-item">
+            <a href="{{ route('admin.management.brand.index') }}" class="menu-link">Danh sách NCC</a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">Lượt đánh giá</a>
           </li>
         </ul>
       </li>
@@ -103,43 +94,53 @@
       <!-- Blog -->
       <li class="menu-item">
         <a href="javascript:void(0)" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-copy"></i>
-          Blog
+          <i class="fa-solid fa-pen-nib pr-3"></i>
+          Quản lý bài viết
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">Category Blog</a>
+            <a href="" class="menu-link">Danh mục bài viết</a>
           </li>
           <li class="menu-item">
-            <a href="" class="menu-link">List Blog</a>
+            <a href="" class="menu-link">Danh sách bài viết</a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">Lươt bình luận</a>
           </li>
         </ul>
       </li>
 
-      <li class="menu-item">
-        <a href="{{ route('admin.management.brand.index') }}" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-crown"></i>
-          Brands
-        </a>
-      </li>
-      <!-- Misc -->
-      <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
-      <li class="menu-item">
-        <a
-          href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-          target="_blank"
-          class="menu-link">
-          <i class="menu-icon tf-icons bx bx-support"></i>
-          Support
-        </a>
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Người dùng</span>
       </li>
       <li class="menu-item">
         <a
-          href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+          href="/"
           target="_blank"
           class="menu-link">
-          <i class="menu-icon tf-icons bx bx-file"></i>
-          Logout
+          <i class="fa-solid fa-users pr-3"></i>
+          Quản lý tài khoản
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="" target="_blank" class="menu-link">
+          <i class="fa-solid fa-truck-fast pr-3"></i>
+          Quản lý đơn hàng
+        </a>
+      </li>
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Khác</span>
+      </li>
+      <li class="menu-item">
+        <a href="{{ route('admin.logout') }}" class="menu-link">
+          <i class="fa-solid fa-gear pr-3"></i>
+          Cài đặt
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{ route('admin.logout') }}" class="menu-link">
+          <i class="fa-solid fa-arrow-right-from-bracket pr-3"></i>
+          Đăng xuất
         </a>
       </li>
     </ul>

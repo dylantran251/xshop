@@ -12,8 +12,7 @@
                 <input
                 type="text"
                 class="form-control border-0 shadow-none"
-                placeholder="Search..."
-                aria-label="Search..."
+                placeholder="Tìm kiếm"
                 />
             </div>
         </div>
@@ -44,8 +43,9 @@
                         </div>
                         </div>
                         <div class="flex-grow-1">
-                        <span class="fw-semibold d-block">John Doe</span>
-                        <small class="text-muted">Admin</small>
+                            @if(Auth::check())
+                                <span class="fw-semibold d-block">{{{Auth::user()->name}}}</span>
+                            @endif
                         </div>
                     </div>
                     </a>
@@ -56,20 +56,20 @@
                 <li>
                     <a class="dropdown-item" href="#">
                     <i class="bx bx-user me-2"></i>
-                    <span class="align-middle">My Profile</span>
+                    <span class="align-middle">Cá nhân</span>
                     </a>
                 </li>
                 <li>
                     <a class="dropdown-item" href="#">
                     <i class="bx bx-cog me-2"></i>
-                    <span class="align-middle">Settings</span>
+                    <span class="align-middle">Cài đặt</span>
                     </a>
                 </li>
                 <li>
                     <a class="dropdown-item" href="#">
                     <span class="d-flex align-items-center align-middle">
                         <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                        <span class="flex-grow-1 align-middle">Billing</span>
+                        <span class="flex-grow-1 align-middle">Thanh toán</span>
                         <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
                     </span>
                     </a>
@@ -78,9 +78,9 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="auth-login-basic.html">
+                    <a class="dropdown-item" href="{{}}">
                     <i class="bx bx-power-off me-2"></i>
-                    <span class="align-middle">Log Out</span>
+                    <span class="align-middle">Đăng xuất</span>
                     </a>
                 </li>
                 </ul>

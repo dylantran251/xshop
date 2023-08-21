@@ -44,7 +44,23 @@ class BrandSeeder extends Seeder
                 'description' => 'Happy Snacks mang đến cho bạn những khoảnh khắc vui vẻ bên những chiếc bát đầy đồ ăn vặt. 
                 Với sự kết hợp hoàn hảo giữa nguyên liệu chất lượng và kỹ thuật chế biến tinh tế, 
                 chúng tôi cam kết mang đến những món ăn ngon và an toàn cho mọi thành viên trong gia đình.'
-            ]
+            ],
+            [
+                'image' => 'congphat.png',
+                'name' => 'Công Phát',
+                'status' => 1,
+                'address' => '166/51/6 Phạm Phú Thứ, Phường 4, Quận 6, Thành phố Hồ Chí Minh',
+                'hotline' => '0919 149 338',
+                'description' => 'Chúng tôi cung cấp các loại bánh nướng như: Bánh Pía, Bánh Trung Thu, Bánh In, Bánh Dừa,... với nhiều hương vị, kích cỡ khác nhau, phù hợp cho các lựa chọn tiêu dùng của từng khách hàng.'
+            ],
+            [
+                'image' => 'tq.png',
+                'name' => 'Trung Quốc',
+                'status' => 1,
+                'address' => 'Trung Quốc',
+                'hotline' => '1123 344 343',
+                'description' => 'Những đồ ăn vặt Trung Quốc thường có hương vị rất đặc trưng và gắn liền với tuổi thơ của thế hệ 9x-2k'
+            ],
         ]);
         
     }

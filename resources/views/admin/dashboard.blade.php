@@ -8,13 +8,12 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+                            <h5 class="card-title text-primary">Bạn có 50.000 đơn hàng mới! 🎉</h5>
                             <p class="mb-4">
-                                You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
-                                your profile.
+                                Sale sập sàn hôm nay <span class="fw-bold">72%</span> 
                             </p>
 
-                            <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
+                            <a href="javascript:;" class="btn btn-sm btn-outline-primary">Chi tiết</a>
                         </div>
                     </div>
                     <div class="col-sm-5 text-center text-sm-left">
@@ -27,16 +26,16 @@
         </div>
         <div class="col-4 mb-4">
             <div class="card h-100">
-                <div class="card-body">
+                <div class="card-body pb-0">
                     <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
                         <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                             <div class="card-title mb-4">
-                                <h5 class="text-nowrap mb-2">Profile Report</h5>
-                                <span class="badge bg-label-warning rounded-pill">Year 2021</span>
+                                <h5 class="text-nowrap mb-2">Lượt truy cập</h5>
+                                <span class="badge bg-label-warning rounded-pill">Năm 2021</span>
                             </div>
                             <div class="mt-sm-auto">
                                 <small class="text-success text-nowrap fw-semibold"><i class="bx bx-chevron-up"></i> 68.2%</small>
-                                <h3 class="mb-0">$84,686k</h3>
+                                <h3 class="mb-0">500</h3>
                             </div>
                         </div>
                         <div id="profileReportChart"></div>
@@ -159,6 +158,7 @@
                             <th scope="col">Tổng tiền</th>
                             <th scope="col">Phương thức thanh toán</th>
                             <th scope="col">Ghi chú</th>
+                            <th scope="col">Xác nhận</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -170,6 +170,11 @@
                             <td>500.000đ</td>
                             <td>Thanh toán khi nhận hàng</td>
                             <td>Lấy cho em chân gà không cay nha</td>
+                            <td>
+                                <a href="" class="btn btn-icon btn-outline-success px-2 py-1 mr-1">
+                                    <i class="fa-solid fa-check"></i>                                
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
