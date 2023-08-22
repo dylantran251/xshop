@@ -58,7 +58,6 @@
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
-          <!-- Register -->
           <div class="card">
             <div class="card-body">
               <h1 class="h2 text-center fw-bold">Đăng nhập</h1>
@@ -95,7 +94,6 @@
               </p>
             </div>
           </div>
-          <!-- /Register -->
         </div>
       </div>
     </div>

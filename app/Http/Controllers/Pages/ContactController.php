@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ContactController extends Controller
 {
     public function index(){
         $product = Product::all();
-        return view('pages.home', ['products' => $product]);
+        $productCategory = ProductCategory::all();
+        return view('pages.contact');
     }
 }

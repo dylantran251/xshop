@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
-                        <span class="icon_clock_alt"></span>
+                        <span class="fa fa-phone"></span>
                         <h4>Zalo</h4>
                         <p>+84 123 456 789</p>
                     </div>

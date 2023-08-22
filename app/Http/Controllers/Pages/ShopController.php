@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
@@ -23,12 +23,28 @@ class ShopController extends Controller
 
     public function addProduct($id){
         $product = Product::findOrFail($id);
+        $sub_total = $product->price;
         if(Auth::check()){
-            Cart::create([
-                'user_id'  => Auth::user()->id, 
-                'product_id' => $product->id,
-            ]);
-        }else{
+            $user_id = Auth::user()->id;
+            $cart = Cart::where('user_id', $user_id)->get();
+            $checkCart = $cart->contains('product_id', $id);
+            if($checkCart){
+                $cartItem = Cart::where('user_id', $user_id)->where('product_id', $id)->first();
+                $cartItem->update([
+                    'quantity' => $cartItem->quantity + 1, 
+                    'sub_total' => $cartItem->quantity * $sub_total,
+                ]);
+            }
+            else{
+                Cart::create([
+                    'user_id'  => Auth::user()->id, 
+                    'product_id' => $product->id,
+                    'quantity' => 1,
+                    'sub_total' => $sub_total
+                ]);
+            }
+        }
+        else{
             $cart = session()->get('cart', []);
             if(isset($cart[$id])){
                 $cart[$id]['quantity']++;
@@ -40,8 +56,8 @@ class ShopController extends Controller
                     "price" => $product->price
                 ];
             }
+            session()->put('cart', $cart);
         }
-        session()->put('cart', $cart);
         return redirect()->back()->with('sucsess', 'Sản phẩm đã được thêm vào giỏ hàng!');
     }
 }

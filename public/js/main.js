@@ -3,17 +3,11 @@
 'use strict';
 
 (function ($) {
-
-    /*------------------
-        Preloader
-    --------------------*/
     $(window).on('load', function () {
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
 
-        /*------------------
-            Gallery filter
-        --------------------*/
+
         $('.featured__controls li').on('click', function () {
             $('.featured__controls li').removeClass('active');
             $(this).addClass('active');
@@ -24,9 +18,6 @@
         }
     });
 
-    /*------------------
-        Background Set
-    --------------------*/
     $('.set-bg').each(function () {
         var bg = $(this).data('setbg');
         $(this).css('background-image', 'url(' + bg + ')');
@@ -45,17 +36,13 @@
         $("body").removeClass("over_hid");
     });
 
-    /*------------------
-		Navigation
-	--------------------*/
+
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
     });
 
-    /*-----------------------
-        Categories Slider
-    ------------------------*/
+
     $(".categories__slider").owlCarousel({
         loop: true,
         margin: 0,

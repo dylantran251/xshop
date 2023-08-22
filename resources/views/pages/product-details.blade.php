@@ -27,6 +27,7 @@
                     <div class="product__details__pic">
                         @php
                             $category = App\Models\ProductCategory::findOrFail($product->product_category_id);
+                            $productrelated
                             $brand = App\Models\Brand::findOrFail($product->brand_id);
                             $priceVND = number_format($product->price, 0, ',', '.') . 'đ';
                             $images = $product->image;
@@ -93,7 +94,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title related__product__title">
-                        <h2>Related Product</h2>
+                        <h2>Sản phẩm tương tự</h2>
                     </div>
                 </div>
             </div>

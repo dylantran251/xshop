@@ -8,9 +8,7 @@ use Illuminate\Database\Seeder;
 
 class ProductCategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
         ProductCategory::insert([
@@ -27,7 +25,7 @@ class ProductCategorySeeder extends Seeder
                 'status' => 1
             ], 
             [
-                'image' => 'thoibayconkhat.jpg',
+                'image' => 'thoibayconkhat.png',
                 'name' => 'Thổi bay cơn khát',
                 'description' => 'Cảm nhận cảm giác thật tươi mát khi thổi bay cơn khát với danh mục đồ uống đa dạng. Từ nước ép tự nhiên đến thức uống mát lạnh, bạn sẽ luôn tìm thấy lựa chọn phù hợp.',
                 'status' => 1

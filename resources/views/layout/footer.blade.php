@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <p class="text-center">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        <p class="text-center">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is updating with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="" target="_blank">XShop team</a>
         </p>
     </div>
 </footer>

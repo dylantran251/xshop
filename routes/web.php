@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Pages\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Frontend\CartController;
-use App\Http\Controllers\Frontend\BlogController;
-use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Frontend\ShopController;
-use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Pages\CartController;
+use App\Http\Controllers\Pages\BlogController;
+use App\Http\Controllers\Pages\HomeController;
+use App\Http\Controllers\Pages\ShopController;
+use App\Http\Controllers\Pages\ContactController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Management\ProductCategoryController;
@@ -20,15 +20,10 @@ use App\Http\Controllers\Admin\Auth\LoginAdminController;
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('/login', [LoginAdminController::class, 'login'])->name('login');
     Route::post('/login/authenticate', [LoginAdminController::class, 'authenticate'])->name('login.authenticate');
-
     Route::middleware(['auth', 'isAdmin'])->group(function(){
         Route::get('/logout', [LoginAdminController::class, 'logout'])->name('logout');
-
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-
         Route::group(['prefix'=>'management', 'as' => 'management.'], function(){
-
             Route::resource('/product-category', ProductCategoryController::class);
             Route::resource('/brand', BrandController::class);
             Route::resource('/product', ProductController::class);
@@ -50,16 +45,17 @@ Route::get('/shop/{id}/add-product-to-cart', [ShopController::class, 'addProduct
 Route::delete('/cart/{id}/delete-product', [CartController::class, 'delProduct'])->name('cart.delete-product');
 
 Route::get('/shop/cart/checkout', [CheckoutController::class, 'index'])->name('shop.cart.checkout');
+Route::get('/shop/cart/checkout/store', [CheckoutController::class, 'store'])->name('shop.cart.checkout.store');
 
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/auth/login/authenticate', [AuthController::class, 'authenticate'])->name('auth.login.authenticate');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+
+
 // Route::get('/', [PageController::class, 'index'])->name('home');
 // Route::get('/blog', [PageController::class, 'blog'])->name('blog');   
 // Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 // Route::get('/blog/detail', [PageController::class, 'blogDetails'])->name('blog.detail');
 // Route::get('/shop/detail', [PageController::class, 'shopDetails'])->name('shop.detail');
-// Route::get('/login', [AuthController::class, 'login'])->name('login');
-// Route::get('/register', [AuthController::class, 'register'])->name('register'); 
-// Route::post('/login/authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate');
-// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-// Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password'); 

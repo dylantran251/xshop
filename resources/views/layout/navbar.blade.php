@@ -1,31 +1,34 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="">
             <div class="header__logo">
                 <a href="" class="font-weight-bold fs-1">Logo ở đây</a>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="">
             <nav class="header__menu">
                 <ul>
                     <li class="active"><a href="{{ route('home') }}">Trang chủ</a></li>
-                    <li ><a href="{{ route('shop') }}">Cửa hàng</a></li>
-                    <li><a href="{{ route('blog') }}">Bài viết</a></li>
-                    <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                    <li class="active"><a href="{{ route('shop') }}">Cửa hàng</a></li>
+                    <li class="active"><a href="{{ route('blog') }}">Bài viết</a></li>
+                    <li class="active"><a href="{{ route('contact') }}">Liên hệ</a></li>
                 </ul>
             </nav>
         </div>
-        <div class="col-lg-3">
+        <div class="">
             <div class="header__cart">
                 <ul style="padding: 5px 0;">
-                    <li><a href="#">Yêu thích<i class="fa fa-heart pl-2"></i> <span>1</span></a></li>
-                    <li><a href="{{ route('shop.cart') }}">Giỏ hàng<i class="fa fa-shopping-bag pl-2"></i> <span>{{  count( (array) session('cart') ) }}</span></a></li>
+                    <li><a style="	letter-spacing: 0.5px;
+                        font-size: 16px;
+                        color: #252525;
+                        text-transform: uppercase;
+                        font-weight: 700;"
+                         href="{{ route('shop.cart') }}">Giỏ hàng<i class="fa-solid fa-cart-shopping fa-2x"></i><span>{{  count( (array) session('cart') ) }}</span></a></li>
                 </ul>
-
             </div>
         </div>
     </div>
-    <div class="humberger__open">
+    {{-- <div class="humberger__open">
         <i class="fa fa-bars"></i>
-    </div>
+    </div> --}}
 </div>

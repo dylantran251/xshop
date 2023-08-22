@@ -55,8 +55,8 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Chi tiết</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Cập nhật</a>
                             </div>
                         </div>
                     </div>
@@ -78,8 +78,8 @@
                         <i class="bx bx-dots-vertical-rounded"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                        <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Chi tiết</a>
+                        <a class="dropdown-item" href="javascript:void(0);">Cập nhật</a>
                     </div>
                 </div>
                 </div>
@@ -101,8 +101,8 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Chi tiết</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Cập nhật</a>
                             </div>
                         </div>
                     </div>
@@ -124,8 +124,8 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="cardOpt1">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Chi tiết</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Cập nhật</a>
                             </div>
                         </div>
                     </div>
