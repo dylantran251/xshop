@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\Management\ProductCategoryController;
 use App\Http\Controllers\Admin\Management\BrandController;
 use App\Http\Controllers\Admin\Management\ProductController;
 use App\Http\Controllers\Admin\Auth\LoginAdminController;
+use App\Http\Controllers\Admin\Management\Blog;
+use App\Http\Controllers\Admin\Management\BlogCategory;
 
 // Admin
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -27,7 +29,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
             Route::resource('/product-category', ProductCategoryController::class);
             Route::resource('/brand', BrandController::class);
             Route::resource('/product', ProductController::class);
-        });     
+            Route::resource('/blogs',Blog::class) ;
+            Route::resource('/blog-category',BlogCategory::class) ;
+        });   
     });   
 });
 

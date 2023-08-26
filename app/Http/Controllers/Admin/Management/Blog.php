@@ -12,7 +12,7 @@ class Blog extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.management.blogs.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class Blog extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.management.blogs.create');
     }
 
     /**
@@ -28,7 +28,25 @@ class Blog extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'image' => 'image|required|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'name' => 'required',
+            'description' => 'nullable', 
+            'flexRadioDefault' => 'required'
+        ]);
+        if ($request->hasFile('image')) {
+            $filePath = time().'.'.request()->image->getClientOriginalExtension();
+            $request->image->move(public_path('/images/blogs'), $filePath);
+            $request->image = $filePath;
+        }
+
+        Blog::create([
+            'image' => $request->image,
+            'name' => $request->name,
+            'description' => $request->description,
+            "status" => $request->flexRadioDefault
+        ]);
+        return redirect()->route('admin.management.blogs.index')->with('success', 'Create category product success.');
     }
 
     /**
@@ -44,7 +62,8 @@ class Blog extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $item = Blog::find($id);
+        return view('admin.management.blogs.edit',compact('item'));
     }
 
     /**
@@ -52,7 +71,30 @@ class Blog extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request -> validate([
+            'image' => 'image|required|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'name' => 'required',
+            'description' => 'nullable', 
+            'flexRadioDefault' => 'required'
+        ]);
+        $blogs = Blog::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $imagePath = public_path('images/blogs/' . $blogs->image);
+            // if (File::exists($imagePath)) {
+            //     File::delete($imagePath);
+            // }
+            $filePath = time().'.'.request()->image->getClientOriginalExtension();
+            $request->image->move(public_path('images/blogs'), $filePath);
+            $request->image = $filePath;
+        }
+        $blogs->update([
+            'name' => $request->name,
+            'image' => $request->image,
+            'status' => $request->flexRadioDefault,
+            'description' => $request->description
+        ]);
+        // dd($request->all());
+        return redirect()->route('admin.management.blogs.index')->with('success', 'Update Product Category Success');
     }
 
     /**
@@ -60,6 +102,8 @@ class Blog extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $remove = Blog::find($id);
+        $remove->delete();
+        return redirect()->route('admin.management.blogs.index')->with('Sucsess', 'Đã xóa danh sách bài viết');
     }
 }

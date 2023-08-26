@@ -79,5 +79,18 @@
     <script src="{{ asset('assets/js/dashboards-analytics.js')}}"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-</body>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                ckfinder: {
+                    uploadUrl: "{{route('admin.management.blog-category.create',['_token'=>csrf_token()])}}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+    </script>
+
 </html>

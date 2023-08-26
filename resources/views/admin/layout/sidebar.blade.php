@@ -90,7 +90,7 @@
           </li>
         </ul>
       </li>
-
+  
       <!-- Blog -->
       <li class="menu-item">
         <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -99,10 +99,10 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="" class="menu-link">Danh mục bài viết</a>
+            <a href="{{ route('admin.management.blog-category.index') }}" class="menu-link">Danh mục bài viết</a>
           </li>
           <li class="menu-item">
-            <a href="" class="menu-link">Danh sách bài viết</a>
+            <a href="{{ route('admin.management.blogs.index') }}" class="menu-link">Danh sách bài viết</a>
           </li>
           <li class="menu-item">
             <a href="" class="menu-link">Lươt bình luận</a>
