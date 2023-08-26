@@ -20,7 +20,7 @@
             <h2>Danh mục sản phẩm</h2>
         </div>
         <div class="categories__slider owl-carousel ">
-            @foreach ($productCategory as $category)
+            @foreach (session('productCategory') as $category)
                 <div class="d-flex justify-content-center">
                     <div class="categories__item set-bg " data-setbg="{{ asset('images/product-category/'.$category->image) }}">
                         <h5><a href="#">{{ $category->name }}</a></h5>
@@ -42,12 +42,9 @@
                 </div>
                 <div class="featured__controls">
                     <ul>
-                        @php
-                            $categories = App\Models\ProductCategory::take(3)->get();
-                            $products = App\Models\Product::take(8)->get();
-                        @endphp
+
                         <li class="active" data-filter="*">Tất cả</li>
-                        @foreach ($categories as $category)
+                        @foreach (session('productCategory') as $category)
                             <li>{{ $category->name }}</li>   
                         @endforeach
             
@@ -58,7 +55,7 @@
         <div class="row featured__filter">
             @foreach ($products as $product)
                 @php
-                    $priceVND = number_format($product->price, 0, ',', '.') . 'đ';
+                    $priceVND = number_format($product->price, 0, ',', '.') ;
                     $images = $product->image;
                     $subImg = explode("|", $images);
                 @endphp

@@ -23,7 +23,7 @@
                         color: #252525;
                         text-transform: uppercase;
                         font-weight: 700;"
-                         href="{{ route('shop.cart') }}">Giỏ hàng<i class="fa-solid fa-cart-shopping fa-2x"></i><span>{{  count( (array) session('cart') ) }}</span></a></li>
+                         href="{{ route('shop.cart') }}">Giỏ hàng<i class="fa-solid fa-cart-shopping fa-2x"></i><span>{{ (Auth::check()) ? session('numProducts') : count(session('cart', []) ) }}</span></a></li>
                 </ul>
             </div>
         </div>

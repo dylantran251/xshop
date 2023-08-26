@@ -17,122 +17,171 @@
     </section>
     <section class="checkout spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> Bạn có mã giảm giá không? <a href="#">Nhập mã</a> 
-                    </h6>
-                </div>
-            </div>
             @if(session('notification'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <div class="d-flex justify-content-between">
-                    <div>
-                     {{ session('notification') }}   
-                    </div>
-                    
+                    <p class="m-0">{{ session('notification') }}</p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
               </div>
             @endif
-            <div class="checkout__form">
-                <h4>Chi tiết đơn hàng</h4>
-                <form action="#">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Họ<span>*</span></p>
-                                        <input type="text">
+            <section class="checkout spad">
+                <div class="checkout__form">
+                    <form action="{{ route('shop.cart.checkout.store') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-7 mb-3">
+                                <h4 class="mb-3">Chi tiết đơn hàng</h4>
+                                <div class="d-flex justify-content-between mb-3 gap-3">
+                                    <div class="w-100">
+                                        <label for="firstName">Họ</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="{{ ($userDetails['last_name']) ? $userDetails['last_name'] : ' ' }}">
+                                    </div>
+                                    <div class="w-100">
+                                        <label for="lastName">Tên</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="{{ ($userDetails['first_name']) ? $userDetails['first_name'] : ' '}}" >
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Tên<span>*</span></p>
-                                        <input type="text">
+                                @if (Auth::check())
+                                    <div class="mb-3">
+                                        <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                                        <input type="email" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" readonly >
                                     </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Địa chỉ<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Tỉnh/Thành phố<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Số điện thoại<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Ghi chú<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Ăn gì ghi đây...">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Tạo tài khoản?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Tạo một tài khoản bằng cách nhập các thông tin dưới đây. Nếu bạn đã có tài khoản hãy đăng nhập trước khi mua hàng!</p>
-                            <div class="checkout__input">
-                                <p>Mật khẩu<span>*</span></p>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4>Đơn hàng của bạn</h4>
-                                <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
-                                @if(session('cart'))
-                                    @foreach (session('cart') as $product)
-                                        <ul>
-                                            <li>{{ $product['name'] }}<span>{{$product['price']}}</span></li>
-                                        </ul>
-                                    @endforeach
-                                @else
-                                    <a href=""><span>Bạn chưa thêm sản phẩm nào</span> Tới cửa hàng! </a>
                                 @endif
-                                <div class="checkout__order__subtotal">Giảm giá: <span>50.000đ</span></div>
-                                <div class="checkout__order__total">Tổng: <span>500.000đ</span></div>
-                                <p>Abc lợn xề Đông Lỗ nhà ai...</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Thanh toán trực tuyến
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                  
+                                @php
+                                    $subAddress = explode(",", $userDetails['address1']);
+                                @endphp
+                                <div class="mb-3">
+                                    <label for="address">Địa chỉ</label>
+                                    <div class="d-flex flex-justify-content-between gap-3 mb-3">
+                                        <input type="text" class="form-control" id="address" name="address1" placeholder="Thôn/Xóm"  value="{{ ($subAddress) ? $subAddress[0] : '' }}">
+                                        <input type="text" class="form-control" id="address" name="address2" placeholder="Xã/Phường" value="{{ ($subAddress) ? $subAddress[1] : '' }}">
+                                    </div>
+                                    <div class="d-flex flex-justify-content-between gap-3 mb-3">
+                                        <input type="text" class="form-control" id="address" name="address3" placeholder="Quận/Huyện" value="{{ ($subAddress) ? $subAddress[2] : '' }}">
+                                        <input type="text" class="form-control" id="address" name="address4" placeholder="Tỉnh/Thành phố" value="{{ ($subAddress) ? $subAddress[3] : '' }}">
+                                    </div>
+                                    <input type="text" class="form-control" id="address" name="address5" placeholder="Số nhà, tên đường, ngõ..." value="{{ ($subAddress) ? $subAddress[4] : '' }}">
                                 </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Thanh toán khi nhận hàng
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
+
+                                <div class="mb-3">
+                                    <label for="phone">Số điện thoại</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ ($userDetails['phone']) ? $userDetails['phone'] : '' }}">
                                 </div>
-                                <a href="{{ route('shop.cart.checkout.store') }}" class="site-btn">Đặt hàng</a>
+
+                                <div class="mb-3">
+                                    <label for="note">Ghi chú </label>
+                                    <textarea type="text" class="form-control" id="note" name="note" placeholder="Nhớ để lại lời nhắn nha..."> </textarea>
+                                </div>
                         
+                                @if(!Auth::check())
+                                    <h4> Tài khoản </h4>
+                                    <div class="mb-3">
+                                        <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password">Mật khẩu</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="verifyPassword">Xác nhận mật khẩu</label>
+                                        <input type="password" class="form-control" id="verifyPassword" name="verifyPassword" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        Nếu bạn đã có tài khoản hãy 
+                                       <a href=""> đăng nhập</a> 
+                                        để tiếp tục đặt hàng. Nếu chưa có tài khoản bạn hãy tích vào tạo tài khoản hoặc 
+                                        <a class="text-danger" href="">đăng ký ngay.</a>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="save-info" name="register">
+                                        <label class="custom-control-label" for="save-info">Tạo tài khoản</label>
+                                    </div>
+                                @endif
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="same-address" name="defaulAddress">
+                                    <label class="custom-control-label" for="same-address">Đặt địa chỉ này làm địa chỉ mặc định</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-5 mb-4">
+                                <h4 > Giỏ hàng </h4>
+                                <ul class="list-group mb-3 bg-primary"> 
+                                    <li class="list-group-item ">
+                                        <div class="d-flex justify-content-between align-items-center my-2">
+                                            <h5 class="h6 fw-bold m-0">Sản phẩm</h5>
+                                            <h5 class="h6 fw-bold m-0">Giá tiền</h5>
+                                        </div>
+                                    </li>   
+                                    {{-- @if(Auth::check())
+                                        
+                                    @endif --}}
+                                    {{-- @foreach ($cartItems as $item)
+                                        <li class="list-group-item ">
+                                            <div class="d-flex justify-content-between align-items-center my-2">
+                                                <h5 class="h6 m-0">{{$item->product->name}}</h5>
+                                                <span>{{$item->sub_total}}</span>
+                                            </div>
+                                        </li>   
+                                    @endforeach  --}}
+                                    @foreach ($items as $item)
+                                        <li class="list-group-item ">
+                                            <div class="d-flex justify-content-between align-items-center my-2">
+                                                <h5 class="h6 m-0">{{$item['name']}}</h5>
+                                                <span>{{$item['sub_total']}}đ</span>
+                                            </div>
+                                        </li>   
+                                    @endforeach 
+                                    <li class="list-group-item "> 
+                                        <h5 class="h6 mt-3">Thanh toán</h5>
+                                        <div class="d-block my-3">
+                                            <div class="custom-control custom-radio">
+                                                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" value="1" checked>
+                                                <label class="custom-control-label fw-bold" for="credit">Thanh toán khi nhận hàng</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" value="0">
+                                                <label class="custom-control-label fw-bold" for="debit">Thanh toán bằng thẻ ngân hàng</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="list-group-item ">
+                                        <div class="d-flex justify-content-between align-items-center my-2">
+                                            <h5 class="h6 fw-bold m-0">Tổng</h5>
+                                            <h5 class="h6 fw-bold m-0">{{$formatTotal}}đ</h5>
+                                        </div>
+                                    </li> 
+                                    <li class="list-group-item ">
+                                        <div class="d-flex justify-content-between align-items-center my-2">
+                                            <p class=" m-0">Khuyến mãi</p>
+                                            <span class=" m-0">- 0đ</span>
+                                        </div>
+                                    </li> 
+                                    <li class="list-group-item ">
+                                        <div class="d-flex justify-content-between align-items-center my-2">
+                                            <p class="m-0">Phí ship</p>
+                                            <span class="m-0">Free</span>
+                                        </div>
+                                    </li> 
+                                    <li class="list-group-item bg-danger text-white">
+                                        <div class="d-flex justify-content-between align-items-center my-2 ">
+                                            <h5 class="h6 fw-bold m-0">Phải trả</h5>
+                                            <h5 class="h6 fw-bold m-0">{{$formatTotal}}đ</h5>
+                                        </div>
+                                    </li> 
+                                </ul>         
+                                <button type="submit" class="btn btn-secondary text-uppercase w-100 bg-info fw-bold">Đặt hàng</button>
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
+            </section>
         </div>
     </section>
 @endsection

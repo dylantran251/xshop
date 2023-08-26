@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
-use App\Models\ProductCategory;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
@@ -23,16 +22,15 @@ class ShopController extends Controller
 
     public function addProduct($id){
         $product = Product::findOrFail($id);
-        $sub_total = $product->price;
         if(Auth::check()){
             $user_id = Auth::user()->id;
             $cart = Cart::where('user_id', $user_id)->get();
-            $checkCart = $cart->contains('product_id', $id);
-            if($checkCart){
-                $cartItem = Cart::where('user_id', $user_id)->where('product_id', $id)->first();
+            $cartItem = Cart::where('user_id', $user_id)->where('product_id', $id)->first();
+            if($cartItem){
+                // $quantity = $cartItem->quantity;
                 $cartItem->update([
-                    'quantity' => $cartItem->quantity + 1, 
-                    'sub_total' => $cartItem->quantity * $sub_total,
+                    'quantity' => $cartItem->quantity + 1 ,
+                    'sub_total' => ($cartItem->quantity+1) * $product->price,
                 ]);
             }
             else{
@@ -40,7 +38,7 @@ class ShopController extends Controller
                     'user_id'  => Auth::user()->id, 
                     'product_id' => $product->id,
                     'quantity' => 1,
-                    'sub_total' => $sub_total
+                    'sub_total' => $product->price
                 ]);
             }
         }
@@ -48,12 +46,15 @@ class ShopController extends Controller
             $cart = session()->get('cart', []);
             if(isset($cart[$id])){
                 $cart[$id]['quantity']++;
+                $cart[$id]['sub_total'] = $cart[$id]['quantity'] * $product->price;
             }else{
                 $cart[$id] = [
+                    "product_id" => $product->id,
                     "name" => $product->name, 
                     "quantity" => 1,
                     "image" => $product->image,
-                    "price" => $product->price
+                    "price" => $product->price,
+                    "sub_total" => $product->price,
                 ];
             }
             session()->put('cart', $cart);

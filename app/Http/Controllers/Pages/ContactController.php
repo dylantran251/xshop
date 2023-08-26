@@ -10,8 +10,6 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     public function index(){
-        $product = Product::all();
-        $productCategory = ProductCategory::all();
         return view('pages.contact');
     }
 }

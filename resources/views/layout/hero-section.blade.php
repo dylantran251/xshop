@@ -8,9 +8,11 @@
                         <span class="fw-bold text-white" style="font-size: 16px;">Danh mục sản phẩm</span>
                     </div>
                     <ul>
-                        @foreach ($productCategory as $category)
-                        <li><a href="">{{ $category->name }}</a></li>           
-                        @endforeach
+                        @if(session('productCategory'))
+                            @foreach (session('productCategory') as $category)
+                                <li><a href="">{{ $category->name }}</a></li>           
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>

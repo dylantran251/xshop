@@ -5,27 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class UserDetails extends Model
 {
     use HasFactory;
 
-    protected $table = 'orders';
+    protected $table = 'user_details';
 
     protected $fillable = [
         'user_id',
-        'status',
-        'total_amount',
-        'confirm_time',
-        'payment_method'
+        'first_name',	
+        'last_name',
+        'phone',	
+        'address1',	
+        'address2'	
     ];
 
     protected $primarykey = 'id';
-
-    public function user(){
+    
+    public function user() {
         return $this->belongsTo(User::class);
     }
+    
 
-    public function orderDetails(){
-        return $this->hasMany(OrderDetails::class);
-    }
 }

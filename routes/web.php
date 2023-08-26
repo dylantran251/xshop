@@ -33,6 +33,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
 
 // Users
+Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/auth/login/authenticate', [AuthController::class, 'authenticate'])->name('auth.login.authenticate');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
@@ -40,17 +43,14 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/shop/cart', [CartController::class, 'index'])->name('shop.cart');
 
-Route::get('/shop/{id}/product-detail', [ShopController::class, 'showProduct'])->name('shop.product-details');
+Route::get('/shop/{id}/product-details', [ShopController::class, 'showProduct'])->name('shop.product-details');
 Route::get('/shop/{id}/add-product-to-cart', [ShopController::class, 'addProduct'])->name('shop.add-product-to-cart');
-Route::delete('/cart/{id}/delete-product', [CartController::class, 'delProduct'])->name('cart.delete-product');
 
 Route::get('/shop/cart/checkout', [CheckoutController::class, 'index'])->name('shop.cart.checkout');
-Route::get('/shop/cart/checkout/store', [CheckoutController::class, 'store'])->name('shop.cart.checkout.store');
+Route::post('/shop/cart/checkout/store', [CheckoutController::class, 'store'])->name('shop.cart.checkout.store');
+Route::delete('/shop/cart/{id}/delete-item-cart', [CartController::class, 'delCartItem'])->name('shop.cart.delete-item-cart');
+Route::put('/shop/cart/{id}/update-quantity', [CartController::class, 'updateQuantity'])->name('shop.cart.update-quantity');
 
-
-Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('/auth/login/authenticate', [AuthController::class, 'authenticate'])->name('auth.login.authenticate');
-Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 
 
