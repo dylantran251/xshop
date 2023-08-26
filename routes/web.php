@@ -12,6 +12,7 @@ use App\Http\Controllers\Pages\ContactController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Management\ProductCategoryController;
+use App\Http\Controllers\Admin\Management\BlogCategoryController;
 use App\Http\Controllers\Admin\Management\BrandController;
 use App\Http\Controllers\Admin\Management\ProductController;
 use App\Http\Controllers\Admin\Auth\LoginAdminController;
@@ -27,6 +28,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
             Route::resource('/product-category', ProductCategoryController::class);
             Route::resource('/brand', BrandController::class);
             Route::resource('/product', ProductController::class);
+            Route::resource('/blog-category', BlogCategoryController::class);
         });     
     });   
 });

@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Admin\Management;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BlogCategory extends Controller
+class BlogCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('admin.management.blog-category.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class BlogCategory extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.management.blog-category.create');
     }
 
     /**
