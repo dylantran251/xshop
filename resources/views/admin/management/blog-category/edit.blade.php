@@ -11,7 +11,7 @@
                 @method("PUT")
                 <div class="border rounded mb-3">
                     <div class="my-3 d-flex justify-content-center">
-                        <img class="rounded" src="{{ ($item->image != null) ? asset('images/blog-category/'.$item->image) : 'https://mdbootstrap.com/img/Photos/Others/placeholder.jpg' }} " alt="example placeholder" style="width: 250px;" />
+                        <img class="rounded" src="{{ ($item->image != null) ? asset('images/blogs/'.$item->image) : 'https://mdbootstrap.com/img/Photos/Others/placeholder.jpg' }} " alt="example placeholder" style="width: 250px;" />
                     </div>
                     <div class="mb-3 d-flex justify-content-center">
                         <div class="btn btn-primary btn-rounded">

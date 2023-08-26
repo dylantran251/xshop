@@ -18,7 +18,8 @@ class ProductCategoryServiceProvider extends ServiceProvider
     }
     public function boot(): void
     {
-        $productCategory = ProductCategory::all();
-        View::share('productCategory', $productCategory);
+        // 
+        // $productCategory = ProductCategory::all();
+        // View::share('productCategory', $productCategory);
     }
 }

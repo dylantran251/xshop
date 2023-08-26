@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->tinyInteger('status')->default(0);
             $table->decimal('total_amount', 9, 2);
-            $table->dateTime('confirm_time');
+            $table->dateTime('confirm_time')->nullable();
             $table->tinyInteger('payment_method');
             $table->timestamps();
             // Foreign key

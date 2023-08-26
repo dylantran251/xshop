@@ -27,9 +27,11 @@
                         <div class="sidebar__item">
                             <h4>Danh mục sản phẩm</h4>
                             <ul>
-                                @foreach ($productCategory as $category)
-                                    <li><a href="#">{{ $category->name }}</a></li>
-                                @endforeach
+                                @if(session('productCategory'))
+                                    @foreach (session('productCategory') as $category)
+                                        <li><a href="#">{{ $category->name }}</a></li>
+                                    @endforeach 
+                                @endif
                             </ul>
                         </div>
                         <div class="sidebar__item">

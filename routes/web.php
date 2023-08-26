@@ -29,8 +29,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
             Route::resource('/product-category', ProductCategoryController::class);
             Route::resource('/brand', BrandController::class);
             Route::resource('/product', ProductController::class);
-            Route::resource('/blogs',Blog::class) ;
-            Route::resource('/blog-category',BlogCategory::class) ;
+            Route::resource('/blogs',BlogController::class) ;
+            Route::resource('/blog-category',BlogCategoryController::class) ;
         });   
     });   
 });

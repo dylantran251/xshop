@@ -72,7 +72,7 @@ class ProductSeeder extends Seeder
                 'brand_id' => 1,
                 'product_category_id' => 1,
                 'image' => 'combonhatthong1.jpg|combonhatthong2.jpg|combonhatthong3.jpg',
-                'name' => 'Chân gà cay Tứ Xuyên đủ vị',
+                'name' => 'COMBO thống nhất - ĂN CÙNG BÀ TUYẾT',
                 'description' => 'Combo NHẤT THỐNG : 30 GÓI NEM NƯỚNG PHÊN B.T +10 gói Snack SaShimi+BimBim Mái Tôn+5 Túi Sữa Chua tặng 12 gói đùi bò quay
                 ĐỒ ĂN VẶT Ở ĐÂU CHẢ GIỐNG NHAU? TẠI SAO PHẢI CHỌN ĂN VẶT CÙNG BÀ TUYẾT ?
                 - Vì đó là sự yêu quý của fan dành tặng cho bà Tuyết, cho NMT Vlog !

@@ -23,7 +23,7 @@
                 <table class="table">
                     <thead>
                         <tr class="">
-                        <th class="col-3">Tiêu đề </th>
+                            <th class="col-3">Tiêu đề </th>
                             <th class="text-center col-1">Trạng thái</th>
                             <th class="col-2 text-center">Ảnh bài viết</th>
                             <th class="col-3">Mô tả</th>

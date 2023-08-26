@@ -22,4 +22,7 @@ class Product extends Model
     ];
 
     protected $primaryKey = 'id';
+    public function carts() {
+        return $this->hasMany(Cart::class);
+    }
 }

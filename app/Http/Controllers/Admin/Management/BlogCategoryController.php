@@ -4,17 +4,15 @@ namespace App\Http\Controllers\Admin\Management;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Blog_category;
 
-class BlogCategory extends Controller
+class BlogCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Blog_category::all();
-        return view('admin.management.blog-category.index',compact('data'));
+        return view('admin.management.blog-category.index');
     }
 
     /**
@@ -79,17 +77,17 @@ class BlogCategory extends Controller
             'description' => 'nullable', 
             'flexRadioDefault' => 'required'
         ]);
-        $blog_category = Blog_category::findOrFail($id);
+        $blogs = Blog_category::findOrFail($id);
         if ($request->hasFile('image')) {
-            $imagePath = public_path('images/blog-category/' . $blog_category->image);
+            $imagePath = public_path('images/blogs/' . $blogs->image);
             // if (File::exists($imagePath)) {
             //     File::delete($imagePath);
             // }
             $filePath = time().'.'.request()->image->getClientOriginalExtension();
-            $request->image->move(public_path('images/blog-category'), $filePath);
+            $request->image->move(public_path('images/blogs'), $filePath);
             $request->image = $filePath;
         }
-        $blog_category->update([
+        $blogs->update([
             'name' => $request->name,
             'image' => $request->image,
             'status' => $request->flexRadioDefault,
@@ -106,7 +104,6 @@ class BlogCategory extends Controller
     {
         $remove = Blog_category::find($id);
         $remove->delete();
-        return redirect()->route('admin.management.blog-category.index')->with('Sucsess', 'Đã xóa danh mục bài viết');
-
+        return redirect()->route('admin.management.blog-category.index')->with('Sucsess', 'Đã xóa danh sách bài viết');
     }
 }
