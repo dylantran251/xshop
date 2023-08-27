@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
 
     protected $table = 'orders';
 
@@ -20,4 +21,6 @@ class Order extends Model
     ];
 
     protected $primaryKey = 'id';
+=======
+>>>>>>> 6f1ec54b8fd2a6df075ee9a09611f21dd70ce090
 }

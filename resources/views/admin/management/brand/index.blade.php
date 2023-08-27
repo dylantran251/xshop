@@ -16,7 +16,7 @@ Management Category Blog
                     </div>
                 </div>
                 <div class="col">
-                    <a href="{{ route('admin.management.brand.create') }}" class="btn btn-primary">Create New</a>
+                    <a href="{{ route('admin.management.brand.create') }}" class="btn btn-primary">Thêm mới</a>
                 </div>
             </div>
         </div>

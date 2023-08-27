@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('title')
-Management Category Blog
+
 @endsection
 @section('content')
 <!-- Begin Page Content -->
@@ -11,10 +11,10 @@ Management Category Blog
             <div class="d-flex justify-content-between">
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
                 </form>
                 <div class="">
-                    <a href="{{ route('admin.management.product.create') }}" class="btn bg-primary text-white"><i class="fa-solid fa-plus text-white pr-2"></i>Add new</a>
+                    <a href="{{ route('admin.management.product.create') }}" class="btn bg-primary text-white"><i class="fa-solid fa-plus text-white pr-2"></i>Tạo mới</a>
                 </div>
             </div>
         </div>
@@ -23,12 +23,12 @@ Management Category Blog
                 <table class="table">
                     <thead>
                         <tr class="">
-                            <th class="col-3">Name</th>
-                            <th class="text-center col-1">Status</th>
-                            <th class="col-2 text-center">Brand</th>
-                            <th class="col-1">Price</th>
-                            <th class="col-3">Description</th>
-                            <th class="col-2 text-center">Action</th>
+                            <th class="col-3">Tên thương hiệu</th>
+                            <th class="text-center col-1">Trạng thái</th>
+                            <th class="col-2 text-center">Thương hiệu</th>
+                            <th class="col-1">Giá</th>
+                            <th class="col-3">Mô tả</th>
+                            <th class="col-2 text-center">Hoạt động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,7 +58,7 @@ Management Category Blog
                                         <span class="badge ">{{ ($product->status == 1) ? 'Stocking' : 'Out of stock'}}</span>
                                     </a>
                                 </td>
-                                <td class="text-center align-middle">{{ $brand->name }}</td>
+                                <td class="text-center align-middle"><a href="">{{ $brand->name }}</a></td>
                                 <td class="align-middle">{{ $priceVND }}</td>
 
                                 <td class="align-middle ">
@@ -74,11 +74,10 @@ Management Category Blog
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             @method("DELETE")
-                                            <button type="button" class="btn btn-icon btn-outline-danger px-2 py-1">
+                                            <button type="submit" class="btn btn-icon btn-outline-danger px-2 py-1">
                                                 <i class="fa-regular fa-trash-can"></i>
                                             </button>                                            
                                         </form>
-
                                     </div>
                                 </th>
                             </tr>

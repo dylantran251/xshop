@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
-use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class BlogController extends Controller
+class CheckoutController extends Controller
 {
     public function index(){
-        return view('pages.blog', );
+        return view('pages.checkout'); 
     }
 }

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <span style="font-size: 12px;">Đia chỉ: 21 Tân Phú, Phường Đông Lỗ, Quận Thân Bình, Tp. Hồ Chí Minh</span>
+                <span style="font-size: 12px;">Địa chỉ: KCN ICTU, Đường Z115, Quyết Thắng, Tp. Thái Nguyên</span>
             </div>
             <div class="col-lg-6">
                 <div class="header__top__right">
@@ -15,7 +15,12 @@
                             <li><a href="#">English</a></li>
                         </ul>
                     </div>
-                    <a href="#"><i class="fa fa-user pr-2"></i>Đăng nhập</a>
+                    @if(Auth::check())
+                        <a href="#"><i class="fa fa-user pr-2"></i>Đăng xuất</a>
+                    @else
+                        <a href="#"><i class="fa fa-user pr-2"></i>Đăng nhập</a>
+                    @endif
+                    
                 </div>
             </div>
         </div>

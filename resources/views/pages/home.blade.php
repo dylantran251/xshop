@@ -14,14 +14,13 @@
         </div>
     </div>
 </section>
-
 <section class="categories">
     <div class="container">
         <div class="row">
-            <div class="categories__slider owl-carousel">
+            <div class="categories__slider owl-carousel ">
                 @foreach ($productCategory as $category)
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('images/product-category/'.$category->image) }}">
+                    <div class="col-lg-3 ">
+                        <div class="categories__item set-bg " data-setbg="{{ asset('images/product-category/'.$category->image) }}">
                             <h5><a href="#">{{ $category->name }}</a></h5>
                         </div>   
                     </div>                     
@@ -47,7 +46,7 @@
                         @foreach ($categories as $category)
                             <li>{{ $category->name }}</li>   
                         @endforeach
-                        
+            
                     </ul>
                 </div>
             </div>
@@ -298,11 +297,11 @@
                     </div>
                     <div class="blog__item__text">
                         <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2023</li>
                             <li><i class="fa fa-comment-o"></i> 5</li>
                         </ul>
-                        <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        <h5><a href="#">Những loại đồ ăn khô hot nhất hiện nay</a></h5>
+                        <p>Ăn ngon mà khỏe là niềm vui của mỗi người </p>
                     </div>
                 </div>
             </div>
@@ -313,11 +312,11 @@
                     </div>
                     <div class="blog__item__text">
                         <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                            <li><i class="fa fa-calendar-o"></i> May 4,2023</li>
                             <li><i class="fa fa-comment-o"></i> 5</li>
                         </ul>
-                        <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        <h5><a href="#">Tham nhà nhà máy sản xuất bánh kẹo lớn nhất hiện nay</a></h5>
+                        <p>Ăn ngon mà không lo về giá</p>
                     </div>
                 </div>
             </div>
@@ -331,8 +330,8 @@
                             <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
                             <li><i class="fa fa-comment-o"></i> 5</li>
                         </ul>
-                        <h5><a href="#">Visit the clean farm in the US</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        <h5><a href="#">Đồ ăn vặt tuôi thơ niềm vui của mọi lứa tuổi</a></h5>
+                        <p>Đồ ăn vặt không những ngon mà còn chất lượng </p>
                     </div>
                 </div>
             </div>

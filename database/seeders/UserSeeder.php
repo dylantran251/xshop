@@ -9,9 +9,6 @@ use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         User::insert([
@@ -25,7 +22,11 @@ class UserSeeder extends Seeder
             [
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
+<<<<<<< HEAD
                 'password' => '$2y$10$0DEGeRF2u1bF8i20xVaRm.rQ.PbJU/kS4PV7ryvE0s4U1GxsYZK0S', //123
+=======
+                'password' => bcrypt('123'),
+>>>>>>> 6f1ec54b8fd2a6df075ee9a09611f21dd70ce090
                 'roles' => 99,
                 'remember_token' => Str::random(10)
             ],

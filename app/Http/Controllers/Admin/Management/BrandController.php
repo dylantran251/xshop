@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\File;
 
 class BrandController extends Controller
 {
-
     public function index()
     {
         $brands = Brand::all();
@@ -52,26 +51,17 @@ class BrandController extends Controller
         return redirect()->route('admin.management.brand.index')->with('Sucsess', 'Add brand new sucsses!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $brand = Brand::findOrFail($id);
         return view('admin.management.brand.edit', ['brand' => $brand]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -107,9 +97,6 @@ class BrandController extends Controller
         return redirect()->route('admin.management.brand.index')->with('Sucsess', 'Update brand sucsses!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $brand = Brand::findOrFail($id);
@@ -120,5 +107,4 @@ class BrandController extends Controller
         $brand->delete();
         return redirect()->route('admin.management.brand.index')->with('Success', 'Delete Brand Success!');
     }
-
 }

@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <div class="card shadow mb-4">
         <div class="card-body">
-            <h1 class="h5 mb-3 text-gray-800">Add Category Blog</h1>
+            <h1 class="h5 mb-3 text-gray-800">Thêm mới</h1>
             <form action="{{ route('admin.management.product-category.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="border rounded mb-3">

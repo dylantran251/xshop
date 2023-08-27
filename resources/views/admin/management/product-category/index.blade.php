@@ -10,11 +10,11 @@ Management Category Product
             <h3 class="p-0 ">Danh mục sản phẩm</h3>
             <div class="d-flex justify-content-between">
                 <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
                 </form>
                 <div class="">
-                    <a href="{{ route('admin.management.product-category.create') }}" class="btn bg-primary text-white"><i class="fa-solid fa-plus text-white pr-2"></i>Add new</a>
+                    <a href="{{ route('admin.management.product-category.create') }}" class="btn bg-primary text-white"><i class="fa-solid fa-plus text-white pr-2"></i>Tạo mới</a>
                 </div>
             </div>
         </div>
