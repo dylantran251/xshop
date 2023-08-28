@@ -207,8 +207,8 @@ ol {
 .header__top__right {
 	text-align: right;
 	padding: 10px 0 13px;
-	
-	
+
+
 }
 
 .header__top__right__social {
@@ -650,6 +650,7 @@ ol {
 	top: 50%;
 	/* -webkit-transform: translateY(-35px); */
 	background: #ffffff;
+    top: 90px;
 }
 
 .categories__slider.owl-carousel .owl-nav button.owl-next {
@@ -2831,6 +2832,7 @@ ol {
 	}
 	.categories__slider.owl-carousel .owl-nav button.owl-next {
 		right: -10px;
+        top: 90px;
 	}
 	.footer__copyright {
 		text-align: center;
