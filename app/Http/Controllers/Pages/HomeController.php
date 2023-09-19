@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller{
     public function index(Request $request){
         if(Auth::check()){
             $user_id = Auth::user()->id;
@@ -40,6 +40,12 @@ class HomeController extends Controller
         $productCategory =  ProductCategory::all();
         session(['productCategory' => $productCategory]);
         $products = Product::all();
-        return view('pages.home', ['products' => $products]);
+        $brands = Brand::all();
+        return view('pages.home', ['products' => $products, 'brands' => $brands, 'productCategory'=>$productCategory]);
+    }
+
+    public function getProductCategory($id){
+        $productCategory = ProductCategory::findOrFail($id);
+        return redirect()->route('shop', ['productCategoty' => $productCategory]);
     }
 }

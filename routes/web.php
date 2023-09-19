@@ -9,6 +9,7 @@ use App\Http\Controllers\Pages\BlogController;
 use App\Http\Controllers\Pages\HomeController;
 use App\Http\Controllers\Pages\ShopController;
 use App\Http\Controllers\Pages\ContactController;
+use App\Http\Controllers\Pages\OrderController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Management\ProductCategoryController;
@@ -24,12 +25,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::middleware(['auth', 'isAdmin'])->group(function(){
         Route::get('/logout', [LoginAdminController::class, 'logout'])->name('logout');
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard/order-waiting/{id}/confirm', [DashboardController::class, 'orderConfirmation'])->name('dashboard.order-waiting.confirm');
         Route::group(['prefix'=>'management', 'as' => 'management.'], function(){
             Route::resource('/product-category', ProductCategoryController::class);
             Route::resource('/brand', BrandController::class);
             Route::resource('/product', ProductController::class);
+            Route::resource('/blog', BlogController::class);
             Route::resource('/blog-category', BlogCategoryController::class);
-        });     
+        });   
+
     });   
 });
 
@@ -52,7 +56,9 @@ Route::get('/shop/cart/checkout', [CheckoutController::class, 'index'])->name('s
 Route::post('/shop/cart/checkout/store', [CheckoutController::class, 'store'])->name('shop.cart.checkout.store');
 Route::delete('/shop/cart/{id}/delete-item-cart', [CartController::class, 'delCartItem'])->name('shop.cart.delete-item-cart');
 Route::put('/shop/cart/{id}/update-quantity', [CartController::class, 'updateQuantity'])->name('shop.cart.update-quantity');
+Route::get('/shop/category/{id}/product', [HomeController::class, 'getProductCategory'])->name('shop.category.product');
 
+Route::get('/order/my-order/order-tracking', [OrderController::class, 'orderTracking'])->name('order.my-order.order-tracking');
 
 
 

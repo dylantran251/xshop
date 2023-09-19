@@ -22,4 +22,7 @@ class Brand extends Model
 
     protected $primaryKey = 'id';
 
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
 }

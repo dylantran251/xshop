@@ -157,25 +157,28 @@
                             <th scope="col">Trạng thái</th>
                             <th scope="col">Tổng tiền</th>
                             <th scope="col">Phương thức thanh toán</th>
-                            <th scope="col">Ghi chú</th>
                             <th scope="col">Xác nhận</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>DHX74232423424</td>
-                            <td>Trần Đức Hải</td>
-                            <td>Chờ xác nhận</td>
-                            <td>500.000đ</td>
-                            <td>Thanh toán khi nhận hàng</td>
-                            <td>Lấy cho em chân gà không cay nha</td>
-                            <td>
-                                <a href="" class="btn btn-icon btn-outline-success px-2 py-1 mr-1">
-                                    <i class="fa-solid fa-check"></i>                                
-                                </a>
-                            </td>
-                        </tr>
+                        @foreach ($orders as $order)
+                            <tr>
+                                @php
+                                    $total = number_format($order->total_amount, 0, ',', '.');
+                                @endphp
+                                <th scope="row">1</th>
+                                <td class="align-middle">DHX74232423424</td>
+                                <td class="align-middle">{{ $order->user->userDetails->first_name.' '.$order->user->userDetails->last_name }}</td>
+                                <td class="align-middle">{{ ($order->status == 0) ? 'Chờ xác nhận' : ' ' }}</td>
+                                <td class="align-middle">{{  $total }}đ</td>
+                                <td class="align-middle text-center"> {{ ($order->payment_method == 1) ? 'Tiền mặt' : 'Chuyển khoản'}}</td>
+                                <td class="align-middle text-center">
+                                    <a href="{{ route('admin.dashboard.order-waiting.confirm', $order->id) }}" class="btn btn-icon btn-outline-success px-2 py-1 mr-1">
+                                        <i class="fa-solid fa-check"></i>                              
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
               </div>

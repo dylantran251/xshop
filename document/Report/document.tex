@@ -1,0 +1,241 @@
+\documentclass[a4paper,13pt]{report}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}% muốn chèn hình sử dụng gói này
+\usepackage{indentfirst}
+\usepackage{booktabs, tabularx}
+\usepackage{booktabs, xltabular}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{adjustbox}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2cm] {geometry} % định dạng
+\usepackage{titletoc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{mdframed}
+\usepackage{fancyhdr} % tùy chỉnh phần header và footer
+
+\numberwithin{figure}{chapter}
+\numberwithin{figure}{section}
+
+% \titlecontents{chapter}[0em]{\vspace{.1\baselineskip}\bfseries}
+% {\thecontentslabel.\hspace{.5em}}
+% {}{\hfill\contentspage}[\vspace{.1\baselineskip}]
+
+\AtBeginDocument{\setlength{\parskip}{6pt}}
+
+\setcounter{secnumdepth}{3} % đánh số đến mức subsubsection
+
+% Đổi định dạng tiêu đề chương
+% \titleformat{\chapter}[hang]{\LARGE\bfseries}{\Roman{chapter}.}{1em}{}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\usepackage{setspace}
+\onehalfspacing
+\linespread{1.5}
+% Các thông tin trường, khoa, học phần, đề tài, giảng viên, nhóm
+\newcommand{\university}{ĐẠI HỌC CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG THÁI NGUYÊN}
+\newcommand{\faculty}{ KHOA CÔNG NGHỆ THÔNG TIN}
+\newcommand{\baocao}{ BÁO CÁO ĐỀ TÀI}
+\newcommand{\course}{HỌC PHẦN: THỰC HÀNH PHÁT TRIỂN ỨNG DỤNG}
+\newcommand{\mytitle}{Đề tài: Xây dựng ứng dụng gọi xế lái xe hộ cho người sử dụng riệu, bia}
+\newcommand{\mydate}{Thái Nguyên, ngày 23 tháng 05 năm 2023}
+\lstdefinelanguage{cmd}{
+  morekeywords={dir, cd, echo, set},
+  sensitive=false,
+  morecomment=[l]{rem},
+  morestring=[b]",
+  morestring=[b]'
+}
+\lstset{
+    backgroundcolor=\color{lightgray},
+    rulecolor=\color{black},
+    basicstyle=\ttfamily,
+    breaklines=true,
+    frame=single,
+    language=CMD,
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+\begin{document}
+% Trang bìa
+\begin{titlepage}
+    \begin{mdframed}[linewidth=2pt, linecolor=black]
+    \begin{center}
+        {\LARGE\textbf{\university}}\\[0.5cm]
+        {\Large\textbf{\faculty}}\\[1.0cm]
+        \includegraphics[width=5cm]{img/logo.jpg}\\[1.0cm]
+        {\LARGE\textbf{\baocao}}\\[0.5cm]
+        {\Large\textbf{\course}}\\[0.5cm]
+        {\Large\textbf{\mytitle}}\\[2.5cm]
+    \end{center}
+    \begin{table}[H]
+        \begin{tabular}{rrl}
+        \hspace{7 cm} & Giảng viên hướng dẫn: & TS. Nguyễn Tuấn Anh\\[0.5cm]
+        & Sinh viên thực hiện: & Trần Đức Hải \\
+        & & Neeno Keomanyvong \\
+        \end{tabular}
+        \end{table}
+        \vspace{4.0cm}
+        \begin{center}
+        {\footnotesize \mydate}
+        \end{center}
+    \end{mdframed}
+\end{titlepage}
+
+\section*{\centering{LỜI NÓI ĐẦU}}
+
+\newpage
+
+
+
+% \begin{center}
+%     \begin{tabular}{ c c }
+%         \textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ} & \textbf{CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM} \\[0.2cm]
+%         \textbf{THÔNG TIN VÀ TRUYỀN THÔNG} & \textbf{Độc lập -- Tự do -- Hạnh phúc}\\[0.2cm]
+%         \textbf{Khoa công nghệ thông tin}
+%     \end{tabular}
+% \end{center}
+\begin{center}
+    \Large\textbf{KẾ HOẠCH THỰC HIỆN} \\
+\end{center}
+
+\par \textbf{NHÓM SỐ 9} 
+\par \textbf{Thành viên: Trần Đức Hải}
+\par \textbf{Neeno Keomanyvong}
+\par \textbf{Tên ứng dụng: ỨNG DỤNG ĐẶT DỊCH VỤ LÁI XE HỘ SAFEDRIVER } 
+\par Thời gian thực hiện: 
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{2.5}
+    \begin{tabular}{|c|c|c|p{5.5cm}|}
+        \hline
+        \textbf{} & \textbf{Công việc} & \textbf{Thành viên thực hiện }& \textbf{Ghi chú}\\
+        \hline
+        \multirow{2}{*}{Tuần 01} & Xác định yêu cầu của hệ thống & Trần Đức Hải & 
+        \par Làm powpoin  \\
+        \hline
+    \end{tabular}
+    \caption{Bảng kế hoạch thực hiện công việc}
+\end{table}
+
+% MỤC LỤC
+\tableofcontents
+% Danh sách hình ảnh
+\listoffigures
+
+\chapter*{THU THẬP LÀM RÕ YÊU CẦU CỦA ỨNG DỤNG}
+\addcontentsline{toc}{chapter}{THU THẬP LÀM RÕ YÊU CẦU CỦA ỨNG DỤNG}
+\section{Danh sách các câu hỏi khi thu thập và làm rõ yêu cầu của ứng dụng}
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    STT & Câu hỏi (Questions) & Trả lời (Answers) \\
+    \midrule
+    1 & Mục tiêu chính của ứng dụng là gì? & Mục tiêu chính của ứng dụng là cung cấp dịch vụ đặt xe lái chuyên nghiệp, nhanh chóng và thuận tiện cho người dùng. \\
+    2 & Người dùng mục tiêu của ứng dụng là ai? & Người dùng mục tiêu của ứng dụng là khách hàng cá nhân. \\
+    3 & Ứng dụng sẽ hoạt động ở đâu? & Ứng dụng sẽ hoạt động tại các thành phố lớn và khu vực giao thông đông đúc. \\
+    \bottomrule
+  \end{tabular}
+  \caption{Bảng câu hỏi và trả lời}
+\end{table}
+
+% \begin{figure}[H]
+%     \centering
+%         \includegraphics[width=1\textwidth]{img/architecture-of-magento2-2.png}
+%     \caption{Kiến trúc lớp của Magento}
+% \end{figure}
+
+\section{Yêu cần chức năng/phi chức năng của ứng dụng}
+\subsection{Yêu cầu chức năng}
+\subsubsection{Đối với khách hàng}
+\paragraph{Đăng nhập:}  Khách hàng có thể đăng nhập vào tài khoản của mình để sử dụng các dịch vụ trong ứng dụng.
+\paragraph{Gọi xế:} Khách hàng có thể tìm kiếm tài xế phù hợp với nhu cầu của mình bằng cách nhập các thông tin liên quan đến  đơn hàng (Xác nhận, Đang di chuyển đến điểm đón khách,..., Hoàn thành trả khách).
+\paragraph{Chat:} Khách hàng có thể liên lạc với tài xế thông qua tính năng chat trực tiếp trong ứng dụng.
+\paragraph{Hồ sơ:} Khách hàng có thể xem và quản lý thông tin cá nhân của mình trong ứng dụng.
+\paragraph{Lịch sử  đơn hàng:} Khách hàng có thể xem lại thông tin chi tiết các  đơn hàng đã sử dụng dịch vụ của bạn.
+\paragraph{Trung tâm trợ giúp:} Khách hàng có thể truy cập trung tâm trợ giúp để giải đáp các thắc mắc và vấn đề phát sinh trong quá trình sử dụng ứng dụng..
+\subsubsection{Đối với tài xế}
+\paragraph{Đăng nhập:}  Tài xế có thể đăng nhập vào ứng dụng để sẵn sàng nhận  đơn hàng.
+\paragraph{Nhận đơn hàng:}	 Sau khi chấp nhận  đơn hàng, tài xế có thể xác nhận  đơn hàng để khách hàng biết được tài xế sẽ đến đón họ.
+\paragraph{Chat:}	 Tài xế và khách hàng có thể trao đổi thông tin về  đơn hàng qua tính năng chat. 
+\paragraph{Lịch sử đơn hàng:}	 Tài xế có thể xem lịch sử các  đơn hàng đã hoàn thành trong ứng dụng.
+\paragraph{Trung tâm trợ giúp:}	 Tài xế có thể sử dụng trung tâm trợ giúp để giải quyết các vấn đề liên quan đến ứng dụng.
+
+\subsection{Yêu cầu phi chức năng}
+\paragraph{Bảo mật:}  hệ thống cần đảm bảo an toàn và bảo mật thông tin người dùng. 
+\paragraph{Hiệu suất:}	 hệ thống cần đảm bảo hoạt động một cách nhanh chóng và hiệu quả.
+\paragraph{Khả năng mở rộng:}	 hệ thống cần được thiết kế để có thể mở rộng dễ dàng trong tương lai nếu có nhu cầu. 
+\paragraph{Tương thích:}	 hệ thống cần tương thích với các thiết bị androind hệ điều hành phiên bản 7.0 trở lên. 
+\paragraph{Thân thiện với người dùng:}	hệ thống cần được thiết kế với giao diện thân thiện với người dùng để người dùng có thể sử dụng một cách dễ dàng và thuận tiện.
+
+\chapter*{TÀI LIỆU ĐẶC TẢ}
+\addcontentsline{toc}{chapter}{TÀI LIỆU ĐẶC TẢ}
+\setcounter{section}{0}
+\section{Giới thiệu chung}
+\subsection{Mục đích}
+\subsection{Phạm vi}
+\subsection{Các thuật ngữ viết tắt}
+\subsection{Tài liệu tham khảo}
+
+\section{Mô tả tổng quan ứng dụng}
+\subsection{Mô hình Use case}
+\subsection{Danh sách các tác nhân và mô tả}
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{2.5}
+  \begin{tabular}{|c|p{13.8cm}|}
+  \hline
+  \textbf{Tác nhân} & \textbf{Mô tả tác nhân} \\
+  \hline
+  \centering\textbf{Khách hàng} & - Là người dùng cuối cùng của ứng dụng, là những người muốn thuê tài xế lái xe để đưa họ về nhà sau khi uống rượu, hoặc để sử dụng dịch vụ chở khách hoặc dịch vụ lái xe theo yêu cầu. 
+  \par - Họ sẽ đặt dịch vụ trên ứng dụng, đánh giá và đưa ra ý kiến về tài xế lái xe, và thanh toán cho tài xế. \\
+  \hline
+  \centering\textbf{Tài xế} & - Là những người đáp ứng yêu cầu của khách hàng, tài xế cung cấp dịch vụ lái xe an toàn và chuyên nghiệp cho khách hàng. 
+  \par - Họ đăng ký và cung cấp thông tin về tài xế, bao gồm thông tin bằng lái xe, kinh nghiệm lái xe và đánh giá của khách hàng. 
+  \par - Tài xế sẽ nhận được thông báo về các đơn hàng, chấp nhận hoặc từ chối yêu cầu của khách hàng, và nhận thanh toán. \\
+  \hline
+  \centering\textbf{Quản trị viên} & - Là người quản lý hệ thống và quản lý các hoạt động của ứng dụng. 
+  \par - Quản trị viên sẽ quản lý các thông tin về khách hàng, tài xế, đơn hàng và thanh toán, đảm bảo an toàn và tuân thủ các quy định pháp lý liên quan đến dịch vụ cho thuê tài xế. 
+  \par - Họ cũng sẽ cung cấp hỗ trợ cho khách hàng và tài xế, giải quyết các vấn đề kỹ thuật và hỗ trợ các hoạt động kinh doanh. \\
+  \hline
+  \end{tabular}
+  \end{table}
+  
+\subsection{Danh sách Use case và mô tả}
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{2.5}
+  \begin{tabular}{|c|c|p{5cm}|p{3cm}|p{2cm}|}
+  \hline
+  \textbf{ID} & \textbf{Use case} & \textbf{Mô tả ngắn gọn Use case} & \textbf{Chức năng} & \textbf{Ghi chú} \\
+  \hline
+  UC001 & DANGNHAP & Cho phép người dùng đăng nhập vào tài khoản đã đăng ký để sử dụng các tính năng của ứng dụng. & Đăng nhập & \\
+  \hline
+  UC002 & GOIXE & Cho phép người dùng yêu cầu và đặt một tài xế & Gọi xế & \\
+  \hline
+  UC003 & HOSO & Hiển thị thông tin cá nhân của người dùng như tên, số điện thoại, địa chỉ, vv. & Hồ sơ & \\
+  \hline
+  UC004 & DONHANG & Hiển thị danh sách các đơn hàng được đặt hoặc đang được thực hiện & Lịch sử đơn hàng & \\
+  \hline
+  UC005 & TRUNGTAMTROGIUP & Cung cấp hỗ trợ cho người dùng khi gặp sự cố hoặc có câu hỏi. & Trung tâm trợ giúp & \\
+  \hline
+  UC006 & CHAT & Cho phép người dùng liên lạc trực tiếp với tài xế để thảo luận chi tiết về đơn hàng. & Chat & \\
+  \hline
+  \end{tabular}
+  \end{table}
+
+\section{ĐẶC TẢ YÊU CẦU CHỨC NĂNG}
+\subsection{UC001\_DANGNHAP}
+\subsubsection{Mô tả UC001}\
+\subsubsection{Biểu đồ}
+\end{document}

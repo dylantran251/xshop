@@ -6,20 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Brand;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
     public function index(){
-        $product = Product::all();
-        return view('pages.shop',['products' => $product]);
+        $products = Product::all();
+        $brands = Brand::all();
+        return view('pages.shop',['products' => $products, 'brands' => $brands]);
     }
-
     public function showProduct($id){
         $product = Product::findOrFail($id);
         return view('pages.product-details', ['product'=>$product]);
     }
-
     public function addProduct($id){
         $product = Product::findOrFail($id);
         if(Auth::check()){

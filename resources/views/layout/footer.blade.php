@@ -1,55 +1,89 @@
-<footer class="footer spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 ">
-                <div class="footer__about">
-                    <div class="footer__about__logo">
-                        <a href=""><img src="" alt="">Logo ở đây</a>
-                    </div>
-                    <ul>
-                        <li>Địa chỉ:  Đường Z115</li>
-                        <li>Phone: +84 09.188.888</li>
-                        <li>Email: xshop@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 ">
-                <div class="footer__widget">
-                    <h6>Thông tin</h6>
-                    <ul>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Trang chủ</a></li>
-                        <li><a href="#">Chính sách đổi trả</a></li>
-                        <li><a href="#">Kiểm tra đơn hàng</a></li>
-                        <li><a href="#">Hệ thống cửa hàng</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 ">
-                <div class="footer__widget">
-                    <h6>Thông tin</h6>
-                    <ul>
-                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
-                        <li><a href="#">Giao hàng và thanh toán</a></li>
-                        <li><a href="#">Tuyển dụng</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 ">
-                <div class="footer__widget">
-                    <h6>Liên hệ với chúng tôi</h6>
-                    <p>Nhận thông tin về cửa hàng qua email và các ưu đãi đặc biệt.</p>
-                    <form action="#">
-                        <input type="text" placeholder="Nhập email của bạn">
-                        <button type="submit" class="site-btn">Gửi</button>
-                    </form>
-                </div>
-            </div>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted p-1">
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
         </div>
-        <p class="text-center">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is updating with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="" target="_blank">XShop team</a>
-        </p>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
     </div>
-</footer>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
