@@ -3,16 +3,21 @@
 namespace App\Http\Controllers\Admin\Management;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
+
     {
-        return view('admin.management.blogs.index');
+        $blogs=Blog::all();
+        $BlogCategory = BlogCategory::all();
+        return view('admin.management.blogs.index',["blogs"=>$blogs,"BlogCategory"=>$BlogCategory]);
     }
 
     /**
@@ -20,7 +25,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.management.blogs.create');
+        $blogs=BlogCategory::all();
+        return view('admin.management.blogs.create',compact('blogs'));
     }
 
     /**
@@ -30,8 +36,9 @@ class BlogController extends Controller
     {
         $request -> validate([
             'image' => 'image|required|mimes:jpeg,png,jpg,gif,svg|max:5120',
-            'name' => 'required',
+            'title' => 'nullable',
             'description' => 'nullable', 
+            'content' => 'nullable',
             'flexRadioDefault' => 'required'
         ]);
         if ($request->hasFile('image')) {
@@ -39,13 +46,17 @@ class BlogController extends Controller
             $request->image->move(public_path('/images/blogs'), $filePath);
             $request->image = $filePath;
         }
-
-        Blog::create([
+        if (Auth::check()) {
+            $user_id = auth()->user()->id;
+            Blog::create([
+            'user_id' => $user_id ,
+            'blog_category_id' => $request->blog_category_id,
+            'title' =>$request->title,
             'image' => $request->image,
-            'name' => $request->name,
             'description' => $request->description,
-            "status" => $request->flexRadioDefault
-        ]);
+            'content' => $request->content
+        ]);}
+       
         return redirect()->route('admin.management.blogs.index')->with('success', 'Create category product success.');
     }
 
@@ -54,7 +65,8 @@ class BlogController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $category = Blog::findOrFail($id);
+        return view('admin.management.blogs.show', ['blogs' => $category]);
     }
 
     /**
@@ -106,4 +118,5 @@ class BlogController extends Controller
         $remove->delete();
         return redirect()->route('admin.management.blogs.index')->with('Sucsess', 'Đã xóa danh sách bài viết');
     }
+
 }

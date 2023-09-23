@@ -21,10 +21,25 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter name product">
+                    <label for="name" class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" id="name" placeholder="Enter name product">
                 </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Content</label>
+                    <input type="text" name="content" class="form-control" id="name" placeholder="Enter name product">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Select category</label>
+                    <select name="blog_category_id" >
+                        @foreach ($blogs as $key => $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+              
                 <label for="">Status</label>
                 <div class="mb-3 border rounded" style="padding: 6px; 12px;">
                     <div class="form-check">

@@ -37,6 +37,7 @@
                                 @endforeach
                         </select>                        
                     </div>
+                    
                     <div class="col">
                         <label for="category" class="form-label">Category</label>
                         <select class="form-select" name="category" aria-label="">

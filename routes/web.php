@@ -5,18 +5,20 @@ use App\Http\Controllers\Pages\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Pages\CartController;
-use App\Http\Controllers\Pages\BlogController;
 use App\Http\Controllers\Pages\HomeController;
 use App\Http\Controllers\Pages\ShopController;
 use App\Http\Controllers\Pages\ContactController;
+use App\Http\Controllers\Pages\UserBlogController;
+use App\Http\Controllers\Pages\BlogsController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Management\ProductCategoryController;
 use App\Http\Controllers\Admin\Management\BrandController;
 use App\Http\Controllers\Admin\Management\ProductController;
 use App\Http\Controllers\Admin\Auth\LoginAdminController;
-use App\Http\Controllers\Admin\Management\Blog;
-use App\Http\Controllers\Admin\Management\BlogCategory;
+use App\Http\Controllers\Admin\Management\BlogCategoryController;
+use App\Http\Controllers\Admin\Management\BlogController;
+
 
 // Admin
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -41,7 +43,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog', [UserBlogController::class, 'index'])->name('blog');
 Route::get('/shop/cart', [CartController::class, 'index'])->name('shop.cart');
 
 Route::get('/shop/{id}/product-detail', [ShopController::class, 'showProduct'])->name('shop.product-details');
@@ -56,6 +58,7 @@ Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/auth/login/authenticate', [AuthController::class, 'authenticate'])->name('auth.login.authenticate');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
+Route::get('/blogsDetail/{id}',[BlogsController::class,'getblogsDetail'])->name('blogsDetail');
 
 
 // Route::get('/', [PageController::class, 'index'])->name('home');

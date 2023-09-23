@@ -12,10 +12,12 @@ class Blog extends Model
     protected $table = 'blogs';
 
     protected $fillable = [
-        'image',	
-        'name',	
-        'status',	
-        'description'
+        'user_id',
+        'blog_category_id',
+        'title',
+        'image',
+        'description',
+        'content'
     ];
 
     protected $primaryKey = 'id';

@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('content')
     >
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -71,22 +71,22 @@
                         <div class="">
                             <div class="blog__item">
                                 <div class="blog__item__pic d-flex ">
-                                    @foreach ($blogs as $items)
-                                        <div class=" m-2 col-lg-6 col-md-6 col-sm-6">
-                                            <a href="{{ route('blogsDetail', $items->id) }}">
-                                                <img class="" style="width:100% ; height:65%;objectfit:cover"
-                                                    src="{{ $items->image != null ? asset('images/blogs/' . $items->image) : asset('img/blog/blog-1.jpg') }}"
-                                                    alt=""></a>
-                                            <div class="pb-2 pt-4 text-[#ccc] d-flex align-center"
-                                                style="align-items: center;color:#999">
-                                                <i class="fa-regular fa-calendar" style="margin-right:4px"></i>
-                                                <span>{{ $items->created_at }}</span>
-                                                <div style="margin-left:20px"><i class="fa-regular fa-comment"></i> 5</div>
-                                            </div>
-                                            <h4> {{ $items->title }}</h4>
-                                            <p>{{ $items->content }}</p>
+                                    <div class=" m-2 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="pb-2 pb-2 pt-4 text-[#ccc] d-flex align-center"
+                                            style="align-items: center;color:#999">
+                                            <i class="fa-regular fa-calendar" style="margin-right:4px"></i>
+                                            <span>{{ $item->created_at }}</span>
+                                            <div style="margin-left:20px"><i class="fa-regular fa-comment"></i> 5</div>
                                         </div>
-                                    @endforeach
+                                        <h4>{{ $item->title }}</h4>
+
+                                        <img class="" style="width:100% ; height:65%;objectfit:cover;"
+                                            src="{{ $item->image != null ? asset('images/blogs/' . $item->image) : asset('img/blog/blog-1.jpg') }}"
+                                            alt="">
+
+                                        <p class="pt-2 ">{{ $item->content }}</p>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

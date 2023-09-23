@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Management;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog_category;
 use Illuminate\Http\Request;
 
 class BlogCategoryController extends Controller
@@ -11,12 +12,14 @@ class BlogCategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
-        return view('admin.management.blog-category.index');
+        $blogCategory=Blog_category::all();
+        return view('admin.management.blog-category.index', ['blogCategory'=>$blogCategory]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the htgdtm form for creating a new resource.
      */
     public function create()
     {
@@ -24,7 +27,7 @@ class BlogCategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a luu newly created resource in storage.
      */
     public function store(Request $request)
     {
@@ -54,11 +57,12 @@ class BlogCategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $category = Blog_category::findOrFail($id);
+        return view('admin.management.blog-category.show', ['category' => $category]);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the hthi gd cs form for editing the specified resource.
      */
     public function edit(string $id)
     {
@@ -67,7 +71,7 @@ class BlogCategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update cntt 1dm the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
@@ -77,24 +81,24 @@ class BlogCategoryController extends Controller
             'description' => 'nullable', 
             'flexRadioDefault' => 'required'
         ]);
-        $blogs = Blog_category::findOrFail($id);
+        $categoryBlog = Blog_category::findOrFail($id);
         if ($request->hasFile('image')) {
-            $imagePath = public_path('images/blogs/' . $blogs->image);
+            $imagePath = public_path('images/blog-category/' . $categoryBlog->image);
             // if (File::exists($imagePath)) {
             //     File::delete($imagePath);
             // }
             $filePath = time().'.'.request()->image->getClientOriginalExtension();
-            $request->image->move(public_path('images/blogs'), $filePath);
+            $request->image->move(public_path('images/blog-category'), $filePath);
             $request->image = $filePath;
         }
-        $blogs->update([
+        $categoryBlog->update([
             'name' => $request->name,
             'image' => $request->image,
             'status' => $request->flexRadioDefault,
             'description' => $request->description
         ]);
         // dd($request->all());
-        return redirect()->route('admin.management.blog-category.index')->with('success', 'Update Product Category Success');
+        return redirect()->route('admin.management.blog-category.index')->with('success', 'Cập nhập thông tin danh mục blog thành công');
     }
 
     /**
