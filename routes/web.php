@@ -53,7 +53,6 @@ Route::delete('/cart/{id}/delete-product', [CartController::class, 'delProduct']
 Route::get('/shop/cart/checkout', [CheckoutController::class, 'index'])->name('shop.cart.checkout');
 Route::get('/shop/cart/checkout/store', [CheckoutController::class, 'store'])->name('shop.cart.checkout.store');
 
-
 Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/auth/login/authenticate', [AuthController::class, 'authenticate'])->name('auth.login.authenticate');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');

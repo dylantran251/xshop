@@ -19,7 +19,6 @@ class BlogController extends Controller
         $BlogCategory = BlogCategory::all();
         return view('admin.management.blogs.index',["blogs"=>$blogs,"BlogCategory"=>$BlogCategory]);
     }
-
     /**
      * Show the form for creating a new resource.
      */
