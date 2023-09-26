@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cart;
-use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class LoginController extends Controller
 {
-    public function login(){
+    public function index(){
         return view('auth.login');
     }
 
@@ -21,21 +19,27 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('home');
+            return $this->role(Auth()->user());
         }
-
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
 
-    public function logout(Request $request){
+    protected function role($user){
+        if(Auth()->user()->role_id == 99){
+            return redirect()->route('admin.dashboard');
+        }
+        else{
+            return redirect()->route('home');
+        }
+    }
+    
+    public function logout(Request $request)
+    {
         Auth::logout();
-    
         $request->session()->invalidate();
-    
         $request->session()->regenerateToken();
-    
         return redirect()->route('home');
     }
 }

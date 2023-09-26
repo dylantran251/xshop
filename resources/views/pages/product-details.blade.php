@@ -1,72 +1,133 @@
 @extends('layout.app')
 @section('content')
-<style>
-    body{background-color: #ecedee}.card{border: none;overflow: hidden}.thumbnail_images ul{list-style: none;justify-content: center;display: flex;align-items: center;margin-top:10px}.thumbnail_images ul li{margin: 5px;padding: 10px;border: 2px solid #eee;cursor: pointer;transition: all 0.5s}.thumbnail_images ul li:hover{border: 2px solid #000}.main_image{display: flex;justify-content: center;align-items: center;border-bottom: 1px solid #eee;height: 400px;width: 100%;overflow: hidden}.heart{height: 29px;width: 29px;background-color: #eaeaea;border-radius: 50%;display: flex;justify-content: center;align-items: center}.content p{font-size: 12px}.ratings span{font-size: 14px;margin-left: 12px}.colors{margin-top: 5px}.colors ul{list-style: none;display: flex;padding-left: 0px}.colors ul li{height: 20px;width: 20px;display: flex;border-radius: 50%;margin-right: 10px;cursor: pointer}.colors ul li:nth-child(1){background-color: #6c704d}.colors ul li:nth-child(2){background-color: #96918b}.colors ul li:nth-child(3){background-color: #68778e}.colors ul li:nth-child(4){background-color: #263f55}.colors ul li:nth-child(5){background-color: black}.right-side{position: relative}.search-option{position: absolute;background-color: #000;overflow: hidden;align-items: center;color: #fff;width: 200px;height: 200px;border-radius: 49% 51% 50% 50% / 68% 69% 31% 32%;left: 30%;bottom: -250px;transition: all 0.5s;cursor: pointer}.search-option .first-search{position: absolute;top: 20px;left: 90px;font-size: 20px;opacity: 1000}.search-option .inputs{opacity: 0;transition: all 0.5s ease;transition-delay: 0.5s;position: relative}.search-option .inputs input{position: absolute;top: 200px;left: 30px;padding-left: 20px;background-color: transparent;width: 300px;border: none;color: #fff;border-bottom: 1px solid #eee;transition: all 0.5s;z-index: 10}.search-option .inputs input:focus{box-shadow: none;outline: none;z-index: 10}.search-option:hover{border-radius: 0px;width: 100%;left: 0px}.search-option:hover .inputs{opacity: 1}.search-option:hover .first-search{left: 27px;top: 25px;font-size: 15px}.search-option:hover .inputs input{top: 20px}.search-option .share{position: absolute;right: 20px;top: 22px}.buttons .btn{height: 50px;width: 150px;border-radius: 0px !important}
-</style>
-<div class="container mt-5 mb-5">	
-    <div class="card">	
-        <div class="row g-0">	
-            <div class="col-md-6 border-end">	
-                <div class="d-flex flex-column justify-content-center">	
-                    <div class="main_image">	
-                        <img src="https://i.imgur.com/TAzli1U.jpg" id="main_product_image" width="350">	
-                    </div>	<div class="thumbnail_images">	
-                    <ul id="thumbnail">	
-                        <li><img onclick="changeImage(this)" src="https://i.imgur.com/TAzli1U.jpg" width="70"></li>
-                        <li><img onclick="changeImage(this)" src="https://i.imgur.com/w6kEctd.jpg" width="70"></li>	
-                        <li><img onclick="changeImage(this)" src="https://i.imgur.com/L7hFD8X.jpg" width="70"></li>	
-                        <li><img onclick="changeImage(this)" src="https://i.imgur.com/6ZufmNS.jpg" width="70"></li>	
-                    </ul>	
-                </div>	
-            </div>	
-        </div>	
-        <div class="col-md-6">	
-            <div class="p-3 right-side">	
-                <div class="d-flex justify-content-between align-items-center">	<h3>{{ $product->name }}</h3>	
-                    <span class="heart"><i class='bx bx-heart'></i></span>	
-                </div>	<div class="mt-2 pr-3 content">	
-                    <p></p>	</div>	
-                    <h3></h3>	
-                    <div class="ratings d-flex flex-row align-items-center">	
-                        <div class="d-flex flex-row">	
-                            <i class='bx bxs-star' ></i>	
-                            <i class='bx bxs-star' ></i>	
-                            <i class='bx bxs-star' ></i>	
-                            <i class='bx bxs-star' ></i>	
-                            <i class='bx bx-star' ></i>	
-                        </div>	
-                        <span>441 reviews</span>	
-                    </div>	
-                    <div class="mt-5">	
-                        <span class="fw-bold">Color</span>	
-                        <div class="colors">	
-                            <ul id="marker">	
-                                <li id="marker-1"></li>	
-                                <li id="marker-2"></li>	
-                                <li id="marker-3"></li>	
-                                <li id="marker-4"></li>	
-                                <li id="marker-5"></li>	
-                            </ul>	
-                        </div>	
-                    </div>	
-                    <div class="buttons d-flex flex-row mt-5 gap-3">	
-                        <button class="btn btn-outline-dark">Mua ngay</button>	
-                        <button class="btn btn-dark">Thêm vào giỏ hàng</button>	
-                    </div>	
-                    <div class="search-option">	<i class='bx bx-search-alt-2 first-search'> </i>	
-                        <div class="inputs">	
-                            <input type="text" name="">	
-                        </div>	
-                        <i class='bx bx-share-alt share'></i>	
-                    </div>	
-                </div>	
-            </div>	
-        </div>	
-    </div> 
-</div>
-<script>
-function changeImage(element) {
-    var main_prodcut_image = document.getElementById('main_product_image');
-    main_prodcut_image.src = element.src;
-}</script>
+
+    <header>
+        <div class="mb-5  bg-primary">
+            <div class="container py-1">
+                <h4 class="text-white mt-2">Sản phẩm </h4>
+                <nav class="d-flex mb-2">
+                    <h6 class="mb-0">
+                        <a href="" class="text-white-50">Trang chủ</a>
+                        <span class="text-white-50 mx-2"> / </span>
+                        <a href="" class="text-white-50">Cửa hàng</a>
+                        <span class="text-white-50 mx-2"> / </span>
+                        <a href="" class="text-white-50">Sản phẩm</a>
+                    </h6>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    @php
+                        $priceVND = number_format($product->price, 0, ',', '.') ;
+                        $images = $product->image;
+                        $subImg = explode("|", $images);
+                    @endphp
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="{{asset('images/products/'. $subImg[0])}}" alt="" style="width: 100%; height: 50%;">
+                        </div>
+                        <div class="product__details__pic__slider owl-carousel">
+                            @foreach ($subImg as $image)
+                                <img data-imgbigurl="{{asset('images/products/'. $image)}}"
+                                src="{{ asset('images/products/'. $image)}}" alt="">
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>{{ $product->name }}</h3>
+                        <div class="product__details__rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <span>(18 đánh giá)</span>
+                        </div>
+                        <div class="product__details__price">{{ $priceVND }}đ</div>
+                        <a href="{{ route('shop.add-product-to-cart', $product->id) }}" class="btn bg-primary h-100 fw-bold text-uppercase text-white p-1">Thêm vào giỏ hàng</a>
+                    </div>
+                    <div>
+                        <p class="fw-bold fs-4 pt-3" >Mô tả</p>
+                        <p>{{ $product->description }}</p>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        {{-- <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                    aria-selected="true">Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                    aria-selected="false">Information</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                    aria-selected="false">Reviews <span>(1)</span></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Products Infomation</h6>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Products Infomation</h6>
+ 
+                                </div>
+                            </div>
+
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+    <!-- Related Product Section Begin -->
+    <section class="related-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title related__product__title">
+                        <h2>Có thể bạn quan tâm</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        @foreach ($relatedProduct as $product)
+                        <div class="product__item__text">
+                            <h6><a href="#">{{ $product->name }}</a></h6>
+                            <h5>{{ $product->price }}</h5>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Related Product Section End -->
 @endsection

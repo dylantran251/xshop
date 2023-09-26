@@ -80,7 +80,7 @@ class CartController extends Controller
             $userID = Auth::user()->id;
             dd($request->quantity);
         }
-        elseif(session()->has('cart')){
+        else if(session()->has('cart')){
             dd($request->input('quantity'));
         }
     }

@@ -78,9 +78,9 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="{{}}">
-                    <i class="bx bx-power-off me-2"></i>
-                    <span class="align-middle">Đăng xuất</span>
+                    <a class="dropdown-item" href="{{ route('logout') }}">
+                        <i class="bx bx-power-off me-2"></i>
+                        <span class="align-middle">Đăng xuất</span>
                     </a>
                 </li>
                 </ul>

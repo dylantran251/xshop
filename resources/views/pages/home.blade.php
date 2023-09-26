@@ -40,7 +40,7 @@
                     <div class="featured__controls">
                         <ul>
                             <li class="active">Tất cả</li>
-                            @foreach (session('productCategory') as $category)
+                            @foreach (Session('productCategory') as $category)
                                 <li>{{ $category->name }}</li>   
                             @endforeach
                         </ul>

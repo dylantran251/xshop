@@ -18,9 +18,10 @@ class ShopController extends Controller
     }
     public function showProduct($id){
         $product = Product::findOrFail($id);
-        return view('pages.product-details', ['product'=>$product]);
+        $relatedProduct = Product::where('product_category_id', $product->product_category_id)->get();
+        return view('pages.product-details', ['product'=>$product, 'relatedProduct'=>$relatedProduct]);
     }
-    public function addProduct($id){
+    public function addProduct($id, Request $request){
         $product = Product::findOrFail($id);
         if(Auth::check()){
             $user_id = Auth::user()->id;
@@ -35,7 +36,7 @@ class ShopController extends Controller
             }
             else{
                 Cart::create([
-                    'user_id'  => Auth::user()->id, 
+                    'user_id'  => $user_id, 
                     'product_id' => $product->id,
                     'quantity' => 1,
                     'sub_total' => $product->price

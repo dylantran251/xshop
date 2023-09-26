@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function orderTracking(){
+        
         return view('pages.order-traking');
     }
 }

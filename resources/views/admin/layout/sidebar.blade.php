@@ -132,13 +132,13 @@
         <span class="menu-header-text">Khác</span>
       </li>
       <li class="menu-item">
-        <a href="{{ route('admin.logout') }}" class="menu-link">
+        <a href="" class="menu-link">
           <i class="fa-solid fa-gear pr-3"></i>
           Cài đặt
         </a>
       </li>
       <li class="menu-item">
-        <a href="{{ route('admin.logout') }}" class="menu-link">
+        <a href="{{ route('logout') }}" class="menu-link">
           <i class="fa-solid fa-arrow-right-from-bracket pr-3"></i>
           Đăng xuất
         </a>

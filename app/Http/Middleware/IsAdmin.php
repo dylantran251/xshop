@@ -11,7 +11,9 @@ class IsAdmin
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user() != null && Auth::user()->roles == 99) return $next($request);
-        return redirect()->route('admin.login');
+        if(Auth::user() != null && Auth::user()->roles == 99) {
+            return $next($request);
+        }
+        return redirect()->route('home');
     }
 }

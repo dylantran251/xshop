@@ -9,7 +9,7 @@
                 @if(Auth::check())
                     <div class="btn-group ">
                         <div class="d-flex flex-row align-items-center ">
-                            <a style="font-size: 14px; padding: 0px;" class="btn text-white" > 
+                            <a href="{{ route('order.my-order.order-tracking') }}" style="font-size: 14px; padding: 0px;" class="btn text-white" > 
                                 Theo dõi đơn hàng
                             </a> 
                             <div class="border h-100 mx-2"></div>
@@ -48,7 +48,7 @@
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('auth.logout') }}">
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span>Đăng xuất</span>
                                             <i class="fa-solid fa-right-to-bracket fa-xs"></i>
@@ -61,7 +61,7 @@
                 @else
                     <div class="btn-group">                
                         <div class="d-flex flex-row align-items-center text-white">
-                            <a href="{{ route('auth.login') }}" style="font-size: 14px; padding: 0px;" class="btn">Đăng nhập</a>  
+                            <a href="{{ route('login') }}" style="font-size: 14px; padding: 0px;" class="btn">Đăng nhập</a>  
                             <div class="border mx-1 border-black" style="height: 70%;"></div>
                             <a style="font-size: 14px; padding: 0px;" class="btn">Đăng ký</a>  
                         </div> 

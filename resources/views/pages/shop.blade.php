@@ -171,11 +171,10 @@
                             <div class="card-body d-flex flex-column">
                                 <div class="d-flex flex-row">
                                     <h6 class="mb-1 me-1">Giá: {{ $price }}đ</h6>
-                                    {{-- <span class="text-danger"><s>$49.99</s></span> --}}
                                 </div>
                                 <p class="card-text m-0" style="display: -webkit-box; -webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;">{{ $product['name'] }}</p>
                                 <div class="d-flex align-items-end justify-content-between h-100">
-                                    <a href="" class="btn btn-primary shadow-0 me-1" style="font-size: 13px;"><i class="fa-solid fa-eye"></i></a>
+                                    <a href="{{ route('shop.product-details', $product->id) }}" class="btn btn-primary shadow-0 me-1" style="font-size: 13px;"><i class="fa-solid fa-eye"></i></a>
                                     <a href="" class="btn btn-danger shadow-0 me-1" style="font-size: 13px;"><i class="fa-solid fa-heart"></i></a>
                                     <a href="{{ route('shop.add-product-to-cart', $product->id) }}" class="btn btn-success shadow-0 me-1" style="font-size: 13px;"><i class="fa-solid fa-cart-plus"></i></a>
                                 </div>

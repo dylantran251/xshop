@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Pages\CheckoutController;
 use Illuminate\Support\Facades\Route;
+
+
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 use App\Http\Controllers\Pages\CartController;
 use App\Http\Controllers\Pages\BlogController;
@@ -16,14 +19,16 @@ use App\Http\Controllers\Admin\Management\ProductCategoryController;
 use App\Http\Controllers\Admin\Management\BlogCategoryController;
 use App\Http\Controllers\Admin\Management\BrandController;
 use App\Http\Controllers\Admin\Management\ProductController;
-use App\Http\Controllers\Admin\Auth\LoginAdminController;
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login/authenticate', [LoginController::class, 'authenticate'])->name('login.authenticate');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Admin
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
-    Route::get('/login', [LoginAdminController::class, 'login'])->name('login');
-    Route::post('/login/authenticate', [LoginAdminController::class, 'authenticate'])->name('login.authenticate');
-    Route::middleware(['auth', 'isAdmin'])->group(function(){
-        Route::get('/logout', [LoginAdminController::class, 'logout'])->name('logout');
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function(){
+    Route::middleware(['isAdmin'])->group(function(){
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/dashboard/order-waiting/{id}/confirm', [DashboardController::class, 'orderConfirmation'])->name('dashboard.order-waiting.confirm');
         Route::group(['prefix'=>'management', 'as' => 'management.'], function(){
@@ -33,16 +38,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
             Route::resource('/blog', BlogController::class);
             Route::resource('/blog-category', BlogCategoryController::class);
         });   
-
     });   
 });
 
-
 // Users
-Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('/auth/login/authenticate', [AuthController::class, 'authenticate'])->name('auth.login.authenticate');
-Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -57,8 +56,10 @@ Route::post('/shop/cart/checkout/store', [CheckoutController::class, 'store'])->
 Route::delete('/shop/cart/{id}/delete-item-cart', [CartController::class, 'delCartItem'])->name('shop.cart.delete-item-cart');
 Route::put('/shop/cart/{id}/update-quantity', [CartController::class, 'updateQuantity'])->name('shop.cart.update-quantity');
 Route::get('/shop/category/{id}/product', [HomeController::class, 'getProductCategory'])->name('shop.category.product');
+Route::middleware('auth')->group(function(){
+    Route::get('/order/my-order/order-tracking', [OrderController::class, 'orderTracking'])->name('order.my-order.order-tracking');
+});
 
-Route::get('/order/my-order/order-tracking', [OrderController::class, 'orderTracking'])->name('order.my-order.order-tracking');
 
 
 
